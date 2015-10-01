@@ -1,0 +1,26 @@
+{
+  "name": "debate-website",
+  "version": "0.1.0",
+  "description": "Website for the debate team at Ogden High School",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cwadrupldijjit/debate-website.git"
+  },
+  "author": "Samuel Skeen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cwadrupldijjit/debate-website/issues"
+  },
+  "homepage": "https://github.com/cwadrupldijjit/debate-website#readme",
+  "dependencies": {
+    "body-parser": "^1.14.1",
+    "cors": "^2.7.1",
+    "express": "^4.13.3",
+    "mongoose": "^4.1.9"
+  }
+}
