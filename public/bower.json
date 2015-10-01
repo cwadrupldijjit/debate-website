@@ -1,0 +1,25 @@
+{
+  "name": "debate-website",
+  "version": "0.1.0",
+  "authors": [
+    "Sam Skeen <sskeen@sskeendevelopment.onmicrosoft.com>"
+  ],
+  "description": "Website for Ogden High School Debate team",
+  "main": "index.html",
+  "moduleType": [],
+  "license": "MIT",
+  "homepage": "https://github.com/cwadrupldijjit/debate-website",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "~1.4.7",
+    "angular-material": "~0.11.2",
+    "jquery": "~2.1.4",
+    "angular-route": "~1.4.7"
+  }
+}
