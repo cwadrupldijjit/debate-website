@@ -3,5 +3,13 @@
 app.controller('MainController', function() {
 	var vm = this;
 	
-	vm.isMainOpen = true;
+	vm.isMainOpen = false;
+	
+	vm.openMain = function() {
+		vm.isMainOpen = true;
+	};
+	
+	vm.closeMain = function() {
+		vm.isMainOpen = false;
+	};
 });

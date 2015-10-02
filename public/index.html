@@ -6,6 +6,7 @@
 		<title>OHS Tiger Debate Website</title>
 		
 		<link rel="stylesheet" href="bower_components/angular-material/angular-material.min.css">
+		<link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
 		<link rel="stylesheet" href="css/styles.css">
 	</head>
 	
@@ -16,7 +17,13 @@
 		
 		<md-sidenav md-is-open="mc.isMainOpen">
 			<div>
-				menuText
+				<nav><a href="#/home"><md-button ng-click="mc.closeMenu()">Home</md-button></a></nav>
+				<nav><a href="#/calendar"><md-button ng-click="mc.closeMenu()">Calendar</md-button></a></nav>
+				<nav><a href="#/gallery"><md-button ng-click="mc.closeMenu()">Gallery</md-button></a></nav>
+				<nav><a href="#/login"><md-button ng-click="mc.closeMenu()">Log In</md-button></a></nav>
+				<nav><a href="#/account"><md-button ng-click="mc.closeMenu()">Account</md-button></a></nav>
+				<nav><a href="#/admin"><md-button ng-click="mc.closeMenu()">Admin</md-button></a></nav>
+				<nav><a href="#/logout"><md-button ng-click="mc.closeMenu()">Log Out</md-button></a></nav>
 			</div>
 		</md-sidenav>
 		
