@@ -1,3 +1,149 @@
+/* -------------------------------- GENERAL TAGS */
+
+body, html, article {
+	margin: 0;
+	padding: 0;
+	
+	height: 100%;
+}
+
+body, html, header, footer, ng-view, article {
+	width: 100%;
+}
+
+body {
+	padding-top: 52px;
+}
+
+article {
+	height: 95%;
+}
+
+h1 {
+	font-size: 50pt;
+	
+	text-align: center;
+}
+
+a:link {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+
+/* ----------------------- CUSTOM GENERAL CLASSES */
+
+.relative {
+	position: relative;
+}
+
+.pull-left {
+	float: left;
+}
+
+
+/* --------------------------- PARALLAX ATTRIBS */
+
+.parallax-main, .parallax-container, .parallax-image {
+	width: 100%;
+	height: 100%;
+}
+
+.parallax-main {
+	height: 500px;
+}
+
+.parallax-image {
+	padding: 10px 20px;
+	
+	z-index: 1;
+	
+	background-size: 100%;
+}
+
+.parallax-image > div {
+	background-color: rgba(255,255,255,.3);
+	
+	padding: 20px;
+	
+	box-shadow: 0 0 15px rgba(255,255,255,.3), 
+				0 0 5px rgba(255,255,255,.3);
+	
+	border-radius: 5px;
+}
+
+
+/* ------------------------ SIDENAV AND HEADER */
+
 md-sidenav, header {
 	background-color: #FF660D;
+}
+
+header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	
+	z-index: 100;
+	
+	width: 100%;
+}
+
+	a:link .menu-button, a:visited .menu-button {
+		color: black;
+	}
+	
+		.menu-button {
+			margin: 0;
+			padding: 8px 20px;
+			
+			border-radius: 0;
+			
+			text-align: left;
+			font-size: 16pt;
+		}
+		
+		.header-button {
+			outline: none;
+		}
+	
+
+md-sidenav, .md-sidenav-backdrop {
+	position: fixed;
+	left: 0;
+	top: 0;
+	
+}
+
+	md-sidenav {
+		z-index: 200;
+		
+	}
+	
+		md-backdrop.md-sidenav-backdrop {
+			z-index: 195;
+		}
+		
+		.sidenav-button {
+			width: 100%;
+		}
+
+
+/* ----------------------------- HOME VIEW */
+
+.home-banner {
+	background-image: url('../assets/fragment-898479_1280.jpg');
+	
+	overflow: hidden;
+}
+
+.site-welcome {
+	text-align: center;
+}
+
+.larger {
+	font-size: 20pt;
 }
