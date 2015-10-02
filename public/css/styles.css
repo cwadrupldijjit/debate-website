@@ -64,7 +64,7 @@ a:hover {
 	background-size: 100%;
 }
 
-.parallax-image > div {
+.parallax-image .parallax-text {
 	background-color: rgba(255,255,255,.3);
 	
 	padding: 20px;
@@ -142,8 +142,10 @@ md-sidenav, .md-sidenav-backdrop {
 
 .site-welcome {
 	text-align: center;
+	
+	font-size: 24pt;
 }
 
 .larger {
-	font-size: 20pt;
+	font-size: 28pt;
 }

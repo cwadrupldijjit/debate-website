@@ -36,3 +36,5 @@ google oauth info.txt
 typings
 
 bower_components
+*.psd
+*.indd
