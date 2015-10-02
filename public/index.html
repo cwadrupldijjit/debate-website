@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" ng-app="MainApp">
 	<head>
 		<meta charset="UTF-8">
 		<title>OHS Tiger Debate Website</title>
@@ -13,6 +13,20 @@
 		<header>
 			<md-button ng-click="mc.openMain()">Main Menu</md-button>
 		</header>
+		
+		<md-sidenav md-is-open="mc.isMainOpen">
+			<div>
+				menuText
+			</div>
+		</md-sidenav>
+		
+		<article>
+			<ng-view></ng-view>
+		</article>
+		
+		<footer>
+			
+		</footer>
 		
 		<script src="bower_components/angular/angular.js"></script>
 		<script src="bower_components/angular-route/angular-route.js"></script>
