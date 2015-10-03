@@ -44,6 +44,23 @@ a:hover {
 	float: left;
 }
 
+.centered {
+	margin: 0 auto;
+	
+	text-align: center;
+}
+
+
+/* -------------------------- NON-MATERIAL FLEX */
+.flex-container {
+	display: flex;
+}
+
+	.flex-container.flex-center {
+		justify-content: space-around;
+		align-items: center;
+	}
+
 
 /* --------------------------- PARALLAX ATTRIBS */
 
