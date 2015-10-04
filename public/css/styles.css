@@ -40,6 +40,21 @@ a:hover {
 	position: relative;
 }
 
+.absolute {
+	position: absolute;
+	left: 0;
+}
+
+.absolute-center {
+	display: block;
+	
+	margin: 0 auto;
+}
+
+.absolute-bottom {
+	bottom: 0;
+}
+
 .pull-left {
 	float: left;
 }
@@ -81,15 +96,16 @@ a:hover {
 	background-size: 100%;
 }
 
-.parallax-image .parallax-text {
+.parallax-text {
 	background-color: rgba(255,255,255,.3);
-	
-	padding: 20px;
-	
 	box-shadow: 0 0 15px rgba(255,255,255,.3), 
 				0 0 5px rgba(255,255,255,.3);
 	
+	padding: 20px;
+	
 	border-radius: 5px;
+	
+	width: 500px;
 }
 
 
@@ -156,13 +172,19 @@ md-sidenav, .md-sidenav-backdrop {
 	
 	overflow: hidden;
 }
-
-.site-welcome {
-	text-align: center;
 	
-	font-size: 24pt;
-}
-
-.larger {
-	font-size: 28pt;
-}
+	.home-banner div:first-child {
+		outline: 2px solid black;
+	}
+	
+	.site-welcome {
+		margin-top: 0;
+		
+		text-align: center;
+		
+		font-size: 24pt;
+	}
+	
+	.larger {
+		font-size: 28pt;
+	}
