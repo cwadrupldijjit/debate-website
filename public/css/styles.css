@@ -173,9 +173,9 @@ md-sidenav, .md-sidenav-backdrop {
 	overflow: hidden;
 }
 	
-	.home-banner div:first-child {
+	/*.home-banner div:first-child {
 		outline: 2px solid black;
-	}
+	}*/
 	
 	.site-welcome {
 		margin-top: 0;
