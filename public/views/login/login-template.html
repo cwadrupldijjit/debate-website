@@ -1,3 +1,15 @@
-<div class="route-container">
-	
+<div class="route-container flex-container relative" id="login-view">
+	<div class="login-box">
+		<form>
+			<md-input-container>
+				<label for="vm.username">Username</label>
+				<input type="text" ng-model="vm.username">
+			</md-input-container>
+			<md-input-container>
+				<label for="vm.password">Password</label>
+				<input type="password" ng-model="vm.password">
+			</md-input-container>
+			<input type="submit" class="md-button md-raised md-primary">
+		</form>
+	</div>
 </div>

@@ -1,4 +1,4 @@
-app.controller('LoginController', ['', function() {
+app.controller('LoginController', [function() {
 	var vm = this;
 	
 	

@@ -17,6 +17,20 @@ app.config(['$routeProvider', '$stateProvider', '$urlRouterProvider', '$location
 			templateUrl: '../views/home/home-template.html',
 			controller: 'HomeController',
 			controllerAs: 'vm'
+		})
+		
+		.state('login', {
+			url: '/login',
+			templateUrl: '../views/login/login-template.html',
+			controller: 'LoginController',
+			controllerAs: 'vm'
+		})
+		
+		.state('register', {
+			url: '/register',
+			templateUrl: '/views/login/register-template.html',
+			controller: 'RegisterController',
+			controllerAs: 'vm'
 		});
 	
 	$urlRouterProvider.otherwise('/');
