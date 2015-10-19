@@ -42,13 +42,14 @@ a:hover {
 
 .absolute {
 	position: absolute;
-	left: 0;
 }
 
 .absolute-center {
-	display: block;
+	display: flex;
+	justify-content: space-around;
 	
-	margin: 0 auto;
+	width: 50%;
+	left: 50%;
 }
 
 .absolute-bottom {
@@ -89,7 +90,7 @@ a:hover {
 }
 
 .parallax-image {
-	padding: 10px 20px;
+	padding: 0;
 	
 	z-index: 1;
 	
@@ -97,15 +98,17 @@ a:hover {
 }
 
 .parallax-text {
-	background-color: rgba(255,255,255,.3);
-	box-shadow: 0 0 15px rgba(255,255,255,.3), 
-				0 0 5px rgba(255,255,255,.3);
+	background-color: rgba(255,255,255,.4);
+	box-shadow: 0 0 15px rgba(255,255,255,.4), 
+				0 0 5px rgba(255,255,255,.4);
 	
 	padding: 20px;
 	
 	border-radius: 5px;
 	
 	width: 500px;
+	
+	font-size: 16pt;
 }
 
 
@@ -177,6 +180,35 @@ md-sidenav, .md-sidenav-backdrop {
 		outline: 2px solid black;
 	}*/
 	
+	.circular-logo-holder {
+		width: 200px;
+		height: 200px;
+		
+		position: relative;
+		left: -50%;
+		top: 30px;
+		
+		background-color: white;
+		background-image: url('../assets/laurel-wreath-translucent.png');
+		background-size: 80%;
+		background-position: center center;
+		background-repeat: no-repeat;
+		
+		display: flex;		
+		justify-content: space-around;
+		align-items: center;
+		
+		border-radius: 100px;
+		
+		overflow: hidden;
+	}
+	
+	#ohs_home_logo {
+		
+		height: 70%;
+		width: 70%;
+	}
+	
 	.site-welcome {
 		margin-top: 0;
 		
@@ -187,4 +219,10 @@ md-sidenav, .md-sidenav-backdrop {
 	
 	.larger {
 		font-size: 28pt;
+	}
+	
+	.flex-text {
+		font-size: 16pt;
+		
+		padding: 70px;
 	}
