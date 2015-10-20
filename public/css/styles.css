@@ -43,7 +43,9 @@ a:hover {
   float: left; }
 
 .centered {
-  margin: 0 auto;
+  margin: 0 auto; }
+
+.text-centered {
   text-align: center; }
 
 /* -------------------------- NON-MATERIAL FLEX */
@@ -167,3 +169,5 @@ md-backdrop.md-sidenav-backdrop {
 .login-box {
   width: 400px; }
 
+.oauth-button {
+  outline: 5px solid black; }

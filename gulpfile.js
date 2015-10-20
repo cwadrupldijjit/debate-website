@@ -1,24 +1,29 @@
 var gulp = require('gulp');
 var sass = require('gulp-sass');
-var ts = require('gulp-typescript');
+// var ts = require('gulp-typescript');
 
 gulp.task('sass', function() {
-	gulp.src('./**/*.scss')
-		.pipe(sass())
-		.pipe(gulp.dest(function(f) {
-			return f.base;
-		}));
+	gulp.src('public/styles/**/*.scss')
+		.pipe(sass({
+			file: 'styles.css'
+		}))
+		.pipe(gulp.dest('./public/css'));
 });
 
-gulp.task('tsc', function() {
-	gulp.src('./**/*.scss')
-		.pipe(ts())
-		.pipe(gulp.dest(function(f) {
-			return f.base;
-		}));
+//  BELOW TYPESCRIPT TASK DOESN'T WORK
+
+// gulp.task('tsc', function() {
+// 	gulp.src('public/**/*.scss')
+// 		.pipe(ts({
+// 			noImplicitAny: true,
+// 			outFile: 'app.js'
+// 		}))
+// 		.pipe(gulp.dest('public/js'));
+// });
+
+gulp.task('watch', function() {
+	gulp.watch('public/**/*.scss', ['sass']);
+	// gulp.watch('public/**/*.ts', ['tsc']);
 });
 
-gulp.task('default', function() {
-	gulp.watch('./**/*.scss', ['sass']);
-	gulp.watch('./**/*.ts', ['tsc']);
-});
+gulp.task('default', ['sass', 'watch']);
