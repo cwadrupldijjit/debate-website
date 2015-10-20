@@ -1,7 +1,6 @@
 var express = require('express'),
 	session = require('express-session'),
 	passport = require('./services/passport'),
-	localAuth = require('passport-local'),
 	bodyParser = require('body-parser'),
 	cors = require('cors'),
 	mongoose = require('mongoose'),
@@ -13,6 +12,14 @@ var express = require('express'),
 var app = express();
 
 var UserController = require('./controllers/UserController');
+
+
+var isAuthed = function(req, res, next) {
+	if (!req.isAuthenticated())
+		return res.sendStatus(401);
+	
+	return next();
+};
 
 
 app.use(bodyParser.json());
@@ -31,9 +38,23 @@ app.post('/user', UserController.register);
 app.get('/user', isAuthed, UserController.me);
 app.put('/user', isAuthed, UserController.update);
 
-app.post('/login', passport.authenticate('local', {
+
+app.post('/auth/local', passport.authenticate('local', {
 	successRedirect: '/user'
 }));
+
+app.get('/auth/facebook', passport.authenticate('facebook'));
+app.get('/auth/facebook/callback', passport.authenticate('facebook', {
+	successRedirect: '/me',
+	failureRedirect: '/login', 
+}), function(req, res) {
+	console.log(req.session);
+});
+
+
+app.get('/auth/twitter', passport.authenticate('twitter'));
+app.get('/auth/twitter/callback', passport.authenticate('twitter'))
+
 app.get('/logout', function(req, res) {
 	req.logout();
 	return res.send('logged out');
