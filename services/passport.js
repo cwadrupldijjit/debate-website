@@ -9,10 +9,8 @@ var passport = require('passport'),
 
 
 
-passport.use(new LocalStrategy({
-	usernameField: 'username',
-	passwordField: 'password'
-}, function(username, password, done) {
+passport.use(new LocalStrategy(
+	function(username, password, done) {
 	User.findOne({ username: username })
 		.exec(function(err, user) {
 			if (err)
@@ -29,13 +27,15 @@ passport.use(new LocalStrategy({
 }));
 
 passport.use(new FacebookStrategy({
-	clientId: config.facebookId,
+	clientID: config.facebookId,
 	clientSecret: config.facebookSecret
 }, function(token, refreshToken, profile, done) {
 	console.log('token', token);
 	console.log('profile', profile);
 	return done(null, profile);
 }));
+
+
 
 passport.use(new TwitterStrategy({
 	consumerKey: config.twitterId,
