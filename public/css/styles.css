@@ -1,247 +1,169 @@
 /* -------------------------------- GENERAL TAGS */
-
 body, html, article {
-	margin: 0;
-	padding: 0;
-	
-	height: 100%;
-}
+  margin: 0;
+  padding: 0;
+  height: 100%; }
 
 body, html, header, footer, ng-view, article {
-	width: 100%;
-}
+  width: 100%; }
 
 body {
-	padding-top: 52px;
-}
+  padding-top: 52px; }
 
 article {
-	height: 95%;
-}
+  height: 95%; }
 
 h1 {
-	font-size: 50pt;
-	
-	text-align: center;
-}
+  font-size: 50pt;
+  text-align: center; }
 
 a:link {
-	text-decoration: none;
-}
+  text-decoration: none; }
 
 a:hover {
-	text-decoration: underline;
-}
-
+  text-decoration: underline; }
 
 /* ----------------------- CUSTOM GENERAL CLASSES */
-
 .relative {
-	position: relative;
-}
+  position: relative; }
 
 .absolute {
-	position: absolute;
-}
+  position: absolute; }
 
 .absolute-center {
-	display: flex;
-	justify-content: space-around;
-	
-	width: 50%;
-	left: 50%;
-}
+  display: flex;
+  justify-content: space-around;
+  width: 50%;
+  left: 50%; }
 
 .absolute-bottom {
-	bottom: 0;
-}
+  bottom: 0; }
 
 .pull-left {
-	float: left;
-}
+  float: left; }
 
 .centered {
-	margin: 0 auto;
-	
-	text-align: center;
-}
-
+  margin: 0 auto;
+  text-align: center; }
 
 /* -------------------------- NON-MATERIAL FLEX */
 .flex-container {
-	display: flex;
-}
+  display: flex; }
 
-	.flex-container.flex-center {
-		justify-content: space-around;
-		align-items: center;
-	}
-
+.flex-container.flex-center {
+  justify-content: space-around;
+  align-items: center; }
 
 /* --------------------------- PARALLAX ATTRIBS */
-
 .parallax-main, .parallax-container, .parallax-image {
-	width: 100%;
-	height: 100%;
-}
+  width: 100%;
+  height: 100%; }
 
 .parallax-main {
-	height: 500px;
-}
+  height: 500px; }
 
 .parallax-image {
-	padding: 0;
-	
-	z-index: 1;
-	
-	background-size: 100%;
-}
+  padding: 0;
+  z-index: 1;
+  background-size: 100%; }
 
 .parallax-text {
-	background-color: rgba(255,255,255,.4);
-	box-shadow: 0 0 15px rgba(255,255,255,.4), 
-				0 0 5px rgba(255,255,255,.4);
-	
-	padding: 20px;
-	
-	border-radius: 5px;
-	
-	width: 500px;
-	
-	font-size: 16pt;
-}
-
+  background-color: rgba(255, 255, 255, 0.4);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.4), 0 0 5px rgba(255, 255, 255, 0.4);
+  padding: 20px;
+  border-radius: 5px;
+  width: 500px;
+  font-size: 16pt; }
 
 /* ------------------------ SIDENAV AND HEADER */
-
 md-sidenav, header {
-	background-color: #FF660D;
-}
+  background-color: #FF660D; }
 
 header {
-	position: fixed;
-	top: 0;
-	left: 0;
-	
-	z-index: 100;
-	
-	width: 100%;
-}
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  width: 100%; }
 
-	a:link .menu-button, a:visited .menu-button {
-		color: black;
-	}
-	
-		.menu-button {
-			margin: 0;
-			padding: 8px 20px;
-			
-			border-radius: 0;
-			
-			text-align: left;
-			font-size: 16pt;
-		}
-		
-		.header-button {
-			outline: none;
-		}
-	
+a:link .menu-button, a:visited .menu-button {
+  color: black; }
+
+.menu-button {
+  margin: 0;
+  padding: 8px 20px;
+  border-radius: 0;
+  text-align: left;
+  font-size: 16pt; }
+
+.header-button {
+  outline: none; }
 
 md-sidenav, .md-sidenav-backdrop {
-	position: fixed;
-	left: 0;
-	top: 0;
-	
-}
+  position: fixed;
+  left: 0;
+  top: 0; }
 
-	md-sidenav {
-		z-index: 200;
-		
-	}
-	
-		md-backdrop.md-sidenav-backdrop {
-			z-index: 195;
-		}
-		
-		.sidenav-button {
-			width: 100%;
-		}
+md-sidenav {
+  z-index: 200; }
 
+md-backdrop.md-sidenav-backdrop {
+  z-index: 195; }
+
+.sidenav-button {
+  width: 100%; }
 
 /* ----------------------------- HOME VIEW */
-
 .home-banner {
-	background-image: url('../assets/fragment-898479_1280.jpg');
-	
-	overflow: hidden;
-}
-	
-	/*.home-banner div:first-child {
+  background-image: url("../assets/fragment-898479_1280.jpg");
+  overflow: hidden; }
+
+/*.home-banner div:first-child {
 		outline: 2px solid black;
 	}*/
-	
-	.circular-logo-holder {
-		width: 200px;
-		height: 200px;
-		
-		position: relative;
-		left: -50%;
-		top: 30px;
-		
-		background-color: white;
-		background-image: url('../assets/laurel-wreath-translucent.png');
-		background-size: 80%;
-		background-position: center center;
-		background-repeat: no-repeat;
-		
-		display: flex;		
-		justify-content: space-around;
-		align-items: center;
-		
-		border-radius: 100px;
-		
-		overflow: hidden;
-	}
-	
-	#ohs_home_logo {
-		
-		height: 70%;
-		width: 70%;
-	}
-	
-	.site-welcome {
-		margin-top: 0;
-		
-		text-align: center;
-		
-		font-size: 24pt;
-	}
-	
-	.larger {
-		font-size: 28pt;
-	}
-	
-	.flex-text {
-		font-size: 16pt;
-		
-		padding: 70px;
-	}
-	
-	
+.circular-logo-holder {
+  width: 200px;
+  height: 200px;
+  position: relative;
+  left: -50%;
+  top: 30px;
+  background-color: white;
+  background-image: url("../assets/laurel-wreath-translucent.png");
+  background-size: 80%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 100px;
+  overflow: hidden; }
+
+#ohs_home_logo {
+  height: 70%;
+  width: 70%; }
+
+.site-welcome {
+  margin-top: 0;
+  text-align: center;
+  font-size: 24pt; }
+
+.larger {
+  font-size: 28pt; }
+
+.flex-text {
+  font-size: 16pt;
+  padding: 70px; }
+
 /*    -----------------------------------    LOGIN VIEW    */
-
 .full-size {
-	width: 100%;
-	height: 95%;
-}
+  width: 100%;
+  height: 95%; }
 
-	#login-view {
-		height: 95%;
-		
-		justify-content: space-around;
-		align-items: center;
-	}
+#login-view {
+  height: 95%;
+  justify-content: space-around;
+  align-items: center; }
 
-	.login-box {
-		width: 400px;
-	}
+.login-box {
+  width: 400px; }
+
