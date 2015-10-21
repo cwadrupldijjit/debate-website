@@ -53,7 +53,7 @@ app.service('LoginService', ['$http', '$q', function($http, $q) {
 		} else {
 			serv.isUsernameTaken(registerData.username)
 				.then(function(result) {
-					if (result)
+					if (result.data)
 						deferred.resolve({msg: 'Username is already in use.  Pick a different name.', data: result.data});
 					else
 						deferred.resolve({msg: 'Perfect!  Continuing on to step 2', data: result});
