@@ -1,4 +1,4 @@
-app.service('LoginService', [function() {
+app.service('LoginService', ['$http', '$q', function($http, $q) {
 	var serv = this;
 	
 	serv.users = [
@@ -31,9 +31,35 @@ app.service('LoginService', [function() {
 		return null;
 	};
 	
-	serv.verify_reg_local = function(registerData) {
-		if (!registerData.username && !registerData.password && !registerData.confirmPassword) {
+	serv.isUsernameTaken = function(username) {
+		var deferred = $q.defer();
+		
+		$http.get('/username/' + username)
+			.then(function(result) {
+				console.log(result);
+				deferred.resolve(result);
+			});
 			
+		return deferred.promise;
+	};
+	
+	serv.verify_reg_local = function(registerData) {
+		var deferred = $q.defer();
+		
+		if (!registerData.username || !registerData.password || !registerData.confirmPassword) {
+			deferred.resolve({msg: 'Form wasn\'t filled out or is incomplete.  Fill out the form first and then submit.'});
+		} else if (registerData.password !== registerData.confirmPassword) {
+			deferred.resolve({msg: 'Password and Confirm Password don\'t match.  Please try retyping them.'});
+		} else {
+			serv.isUsernameTaken(registerData.username)
+				.then(function(result) {
+					if (result)
+						deferred.resolve({msg: 'Username is already in use.  Pick a different name.', data: result.data});
+					else
+						deferred.resolve({msg: 'Perfect!  Continuing on to step 2', data: result});
+				});
 		}
+		
+		return deferred.promise;
 	};
 }]);

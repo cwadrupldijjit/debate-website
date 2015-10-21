@@ -39,6 +39,8 @@ app.post('/user', UserController.register);
 app.get('/user', isAuthed, UserController.me);
 app.put('/user', isAuthed, UserController.update);
 
+app.get('/username/:username', UserController.checkUsername);
+
 
 app.post('/auth/local', passport.authenticate('local', {
 	successRedirect: '/user'

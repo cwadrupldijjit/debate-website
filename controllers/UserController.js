@@ -28,5 +28,20 @@ module.exports = {
 			
 			res.sendStatus(200);
 		})
+	},
+	
+	checkUsername: function(req, res) {
+		var username = req.params.username;
+		
+		User.find({username: username})
+			.exec(function(err, user) {
+				if (err)
+					return res.send(err);
+				
+				if (!user)
+					return res.json(false);
+				
+				res.json(true);
+			});
 	}
 };

@@ -11,19 +11,19 @@ var passport = require('passport'),
 
 passport.use(new LocalStrategy(
 	function(username, password, done) {
-	User.findOne({ username: username })
-		.exec(function(err, user) {
-			if (err)
-				done(err);
-			
-			if (!user)
+		User.findOne({ username: username })
+			.exec(function(err, user) {
+				if (err)
+					done(err);
+				
+				if (!user)
+					return done(null, false);
+				
+				if (user.verifyPassword(password))
+					return done(null, user);
+				
 				return done(null, false);
-			
-			if (user.verifyPassword(password))
-				return done(null, user);
-			
-			return done(null, false);
-		});
+			});
 }));
 
 passport.use(new FacebookStrategy({
