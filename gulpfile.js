@@ -2,12 +2,13 @@ var gulp = require('gulp');
 var sass = require('gulp-sass');
 // var ts = require('gulp-typescript');
 
-gulp.task('sass', function() {
+gulp.task('sass', function(done) {
 	gulp.src('public/styles/**/*.scss')
 		.pipe(sass({
-			file: 'styles.css'
+			file: './public/css/styles.css'
 		}))
-		.pipe(gulp.dest('./public/css'));
+		.pipe(gulp.dest('./'))
+		.on('end', done);
 });
 
 //  BELOW TYPESCRIPT TASK DOESN'T WORK

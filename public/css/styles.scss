@@ -64,7 +64,7 @@ a:hover {
 	margin: 0 auto;
 }
 
-.text-centered{
+.text-center {
 	text-align: center;
 }
 
@@ -247,6 +247,61 @@ md-sidenav, .md-sidenav-backdrop {
 		width: 400px;
 	}
 	
-		.oauth-button {
-			outline: 5px solid black;
+		#oauth-links {
+			display: flex;
+			
+			width: 100%;
+			
+			justify-content: space-around;
 		}
+			
+			$signin-link-size: 40pt;
+			$signin-link-line-height: 1em;
+			
+			.oauth-button {
+				min-width: auto;
+				height: auto;
+				min-height: auto;
+				padding: 0;
+				margin: 0;
+				line-height: $signin-link-line-height;
+				
+				font-size: $signin-link-size;
+			}
+			
+				#facebook-login {
+					color: #264182;
+					transition: all 0.3ms;
+				}
+				
+				#facebook-login:hover {
+					color: #3559B2;
+					background-color: white;
+				}
+				
+				
+				#twitter-login {
+					color: #1C9DE8;
+				}
+				
+				#twitter-login:hover {
+					color: #00AEE5;
+					background-color: white;
+				}
+				
+				#google-login {
+					height: 46px;
+					width: 46px;
+					
+					background-color: #C9000C;
+					color: white;
+					
+					font-size: $signin-link-size - 15pt;
+					// line-height: $signin-link-line-height - .5em;
+					
+					border-radius: 0;
+				}
+				
+				#google-login:hover {
+					background-color: #A3000A;
+				}
