@@ -38,7 +38,7 @@ module.exports = {
 				if (err)
 					return res.send(err);
 				
-				if (!user)
+				if (!user.username)
 					return res.json(false);
 				
 				res.json(true);
