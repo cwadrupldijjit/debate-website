@@ -29,6 +29,10 @@ a:link {
 	text-decoration: none;
 }
 
+a:visited {
+	color: blue;
+}
+
 a:hover {
 	text-decoration: underline;
 }
@@ -246,7 +250,11 @@ md-sidenav, .md-sidenav-backdrop {
 	.login-box {
 		width: 400px;
 	}
-	
+		
+		#login-form {
+			margin-bottom: 30px;
+		}
+		
 		#oauth-links {
 			display: flex;
 			
@@ -292,6 +300,8 @@ md-sidenav, .md-sidenav-backdrop {
 				#google-login {
 					height: 46px;
 					width: 46px;
+					
+					margin-top: 3px;
 					
 					background-color: #C9000C;
 					color: white;
