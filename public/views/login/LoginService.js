@@ -32,6 +32,8 @@ app.service('LoginService', [function() {
 	};
 	
 	serv.verify_reg_local = function(registerData) {
-		if (!registerData.username && !registerData.password && !registerData.confirmPassword)
+		if (!registerData.username && !registerData.password && !registerData.confirmPassword) {
+			
+		}
 	};
 }]);
