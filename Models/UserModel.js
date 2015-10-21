@@ -5,7 +5,7 @@ var schema = new mongoose.Schema({
 	name: 		{ type: String,  maxLength: 80, required: true },
 	username: 	{ type: String,  maxlength: 30, required: true },
 	email: 		{ type: String,  maxlength: 60, required: true },
-	password: 	{ type: String,  required: true },
+	password: 	{ type: String },
 	createdOn: 	{ type: Date,    default: new Date() },
 	isAdmin: 	{ type: Boolean, default: false },
 	linkedProviders: { facebook: { facebookId: String, displayName: String }, 

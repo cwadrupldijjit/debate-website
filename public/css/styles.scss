@@ -16,7 +16,7 @@ body {
 }
 
 article {
-	height: 95%;
+	height: 90%;
 }
 
 h1 {
@@ -71,6 +71,7 @@ a:hover {
 .text-center {
 	text-align: center;
 }
+
 
 /* -------------------------- NON-MATERIAL FLEX */
 .flex-container {
@@ -240,14 +241,14 @@ md-sidenav, .md-sidenav-backdrop {
 	height: 95%;
 }
 
-	#login-view {
+	#login-view, #register-view {
 		height: 95%;
 		
 		justify-content: space-around;
 		align-items: center;
 	}
 
-	.login-box {
+	.login-box, .register-box {
 		width: 400px;
 	}
 		

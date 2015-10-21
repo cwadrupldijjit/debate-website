@@ -17,5 +17,11 @@ app.controller('LoginController', ['LoginService', function(LoginService) {
 		
 		vm.currentUser = result;
 		console.log('this worked');
-	}
+	};
+	
+	vm.login_facebook = function() {
+		LoginService.login_facebook().then(function(result) {
+			vm.currentUser = result.data;
+		});
+	};
 }]);

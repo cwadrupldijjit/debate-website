@@ -11,12 +11,9 @@ app.service('LoginService', [function() {
 	];
 	
 	serv.login_local = function(loginData) {
-		if (!loginData) {
+		if (!loginData.username) {
 			console.log('No login data submitted');
-			return null;
-		}
-		
-		if (loginData) {
+		} else {
 			for (var i = 0; i < serv.users.length; i++) {
 				if (serv.users[i].username === loginData.username) {
 					if (serv.users[i].username === loginData.password) {
@@ -29,8 +26,12 @@ app.service('LoginService', [function() {
 			}
 			
 			console.log('no user data is found for the username provided');
-			
-			return null;
 		}
+		
+		return null;
+	};
+	
+	serv.verify_reg_local = function(registerData) {
+		if (!registerData.username && !registerData.password && !registerData.confirmPassword)
 	};
 }]);

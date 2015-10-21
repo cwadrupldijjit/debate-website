@@ -1,0 +1,67 @@
+<div id="register-view" class="route-container flex-container relative">
+	<div class="register-box direct-center-box">
+		<h5><b>NOTE:</b> This form will create a registration request which will be approved by an administrator.
+		In order to make sure that your request will be processed successfully and to ensure that you will be up
+		and running as soon as possible, please fill out the following form to the best of your ability.</h5>
+		
+		<div id="local-reg-box" ng-show="vm.reg_step === 1">
+			<form id="local-reg-form">
+				<md-input-container>
+					<label for="vm.newUsername">Username</label>
+					<input type="text" ng-model="vm.newUsername">
+				</md-input-container>
+				<md-input-container>
+					<label for="vm.newPassword">Password</label>
+					<input type="password" ng-model="vm.newPassword">
+				</md-input-container>
+				<md-input-container>
+					<label for="vm.confirmPassword">Confirm Password</label>
+					<input type="password" ng-model="vm.confirmPassword">
+				</md-input-container>
+				<input type="submit" class="md-button md-raised md-primary" ng-click="vm.verify_local()">
+			</form>
+		</div>
+		
+		<div id="reg-box-2" ng-show="vm.reg_step === 2">
+			<form id="reg-form-step2">
+				<md-input-container>
+					<label for="vm.newEmail">Email</label>
+					<input type="text" ng-model="vm.newEmail">
+				</md-input-container>
+				<md-input-container ng-hide="vm.currentUser.displayName">
+					<label for="vm.newFirstName">First Name</label>
+					<input type="password" ng-model="vm.newFirstName">
+				</md-input-container>
+				<md-input-container ng-hide="vm.currentUser.displayName">
+					<label for="vm.newLastName">Last Name</label>
+					<input type="password" ng-model="vm.newLastName">
+				</md-input-container>
+				<div ng-show="vm.currentUser.displayName">
+					<h4 class="display-inline">Name:</h4> {{ vm.currentUser.displayName }}
+				</div>
+				<input type="submit" class="md-button md-raised md-primary" ng-click="vm.verify_step2()">
+			</form>
+		</div>
+		
+		<div id="reg-box-3" ng-show="vm.reg_step === 3">
+			<form id="reg-form-step2">
+				<md-input-container>
+					<label for="vm.newEmail">Email</label>
+					<input type="text" ng-model="vm.newEmail">
+				</md-input-container>
+				<md-input-container ng-hide="vm.currentUser.displayName">
+					<label for="vm.newFirstName">First Name</label>
+					<input type="password" ng-model="vm.newFirstName">
+				</md-input-container>
+				<md-input-container ng-hide="vm.currentUser.displayName">
+					<label for="vm.newLastName">Last Name</label>
+					<input type="password" ng-model="vm.newLastName">
+				</md-input-container>
+				<div ng-show="vm.currentUser.displayName">
+					<h4 class="display-inline">Name:</h4> {{ vm.currentUser.displayName }}
+				</div>
+				<input type="submit" class="md-button md-raised md-primary" ng-click="vm.verify_step2()">
+			</form>
+		</div>
+	</div>
+</div>

@@ -11,6 +11,14 @@ var express = require('express'),
 
 var app = express();
 
+app.use(session({
+	secret: config.sessionSecret,
+	saveUninitialized: true,
+	resave: true
+}));
+app.use(passport.initialize());
+app.use(passport.session());
+
 var UserController = require('./controllers/UserController');
 
 
@@ -25,13 +33,6 @@ var isAuthed = function(req, res, next) {
 app.use(bodyParser.json());
 app.use(cors());
 app.use(express.static(__dirname + '/public'));
-app.use(session({
-	secret: config.sessionSecret,
-	saveUninitialized: true,
-	resave: true
-}));
-app.use(passport.initialize());
-app.use(passport.session());
 
 
 app.post('/user', UserController.register);
@@ -46,14 +47,27 @@ app.post('/auth/local', passport.authenticate('local', {
 app.get('/auth/facebook', passport.authenticate('facebook'));
 app.get('/auth/facebook/callback', passport.authenticate('facebook', {
 	successRedirect: '/me',
-	failureRedirect: '/login', 
+	failureRedirect: '/login'
 }), function(req, res) {
 	console.log(req.session);
 });
 
 
 app.get('/auth/twitter', passport.authenticate('twitter'));
-app.get('/auth/twitter/callback', passport.authenticate('twitter'))
+app.get('/auth/twitter/callback', passport.authenticate('twitter', {
+	successRedirect: '/me',
+	failureRedirect: '/login'
+}), function(req, res) {
+	console.log(req.session);
+});
+
+app.get('/auth/google', passport.authenticate('twitter'));
+app.get('/auth/google/callback', passport.authenticate('google', {
+	successRedirect: '/me',
+	failureRedirect: '/login'
+}), function(req, res) {
+	console.log(req.session);
+});
 
 app.get('/logout', function(req, res) {
 	req.logout();
