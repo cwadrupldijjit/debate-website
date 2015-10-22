@@ -23,7 +23,7 @@ app.controller('RegisterController', ['LoginService', function(LoginService) {
 	vm.verify_step2 = function() {
 		if (!vm.newFirstName && !vm.newLastName && !vm.newEmail) {
 			console.log('You need to fill in the form before you submit it.');
-		} else if ( ((vm.newFisrtName && vm.newLastName) || vm.OAuth_data) && vm.newEmail ) {
+		} else if ( ((vm.newFirstName && vm.newLastName) || vm.OAuthData) && vm.newEmail ) {
 			vm.reg_step = 3;
 		}
 	};

@@ -46,22 +46,36 @@
 		</div>
 		
 		<div id="reg-box-3" ng-show="vm.reg_step === 3">
-			<form id="reg-form-step2">
+			<h4>Suggestion:</h4>
+			<p>Make your question/answer combinations as obscure as you can make it while still being memorable to you so you can remember it in case you forget your password.</p>
+			<form id="reg-form-step3">
 				<md-input-container>
-					<label for="vm.newEmail">Email</label>
-					<input type="text" ng-model="vm.newEmail">
+					<label for="vm.securityQ1">Security Question 1</label>
+					<input type="text" ng-model="vm.securityQ1" required>
 				</md-input-container>
-				<md-input-container ng-hide="vm.currentUser.displayName">
-					<label for="vm.newFirstName">First Name</label>
-					<input type="password" ng-model="vm.newFirstName">
+				<md-input-container>
+					<label for="vm.securityA1">Answer</label>
+					<input type="text" ng-model="vm.securityA1" required>
 				</md-input-container>
-				<md-input-container ng-hide="vm.currentUser.displayName">
-					<label for="vm.newLastName">Last Name</label>
-					<input type="password" ng-model="vm.newLastName">
+				
+				<md-input-container>
+					<label for="vm.securityQ2">Security Question 2</label>
+					<input type="text" ng-model="vm.securityQ2" required>
 				</md-input-container>
-				<div ng-show="vm.currentUser.displayName">
-					<h4 class="display-inline">Name:</h4> {{ vm.currentUser.displayName }}
-				</div>
+				<md-input-container>
+					<label for="vm.securityA2">Answer</label>
+					<input type="text" ng-model="vm.securityA2" required>
+				</md-input-container>
+				
+				<md-input-container>
+					<label for="vm.securityQ3">Security Question 3</label>
+					<input type="text" ng-model="vm.securityQ3" required>
+				</md-input-container>
+				<md-input-container>
+					<label for="vm.securityA3">Answer</label>
+					<input type="text" ng-model="vm.securityA3" required>
+				</md-input-container>
+				
 				<input type="submit" class="md-button md-raised md-primary" ng-click="vm.verify_step3()">
 			</form>
 		</div>
