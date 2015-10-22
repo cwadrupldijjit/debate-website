@@ -4,19 +4,21 @@
 		In order to make sure that your request will be processed successfully and to ensure that you will be up
 		and running as soon as possible, please fill out the following form to the best of your ability.</h5>
 		
+		<h4 class="text-right">Step {{ vm.reg_step }}</h4>
+		
 		<div id="local-reg-box" ng-show="vm.reg_step === 1">
 			<form id="local-reg-form">
 				<md-input-container>
 					<label for="vm.newUsername">Username</label>
-					<input type="text" ng-model="vm.newUsername">
+					<input type="text" ng-model="vm.newUsername" required>
 				</md-input-container>
 				<md-input-container>
 					<label for="vm.newPassword">Password</label>
-					<input type="password" ng-model="vm.newPassword">
+					<input type="password" ng-model="vm.newPassword" required>
 				</md-input-container>
 				<md-input-container>
 					<label for="vm.confirmPassword">Confirm Password</label>
-					<input type="password" ng-model="vm.confirmPassword">
+					<input type="password" ng-model="vm.confirmPassword" required>
 				</md-input-container>
 				<input type="submit" class="md-button md-raised md-primary" ng-click="vm.verify_local()">
 			</form>
@@ -24,17 +26,17 @@
 		
 		<div id="reg-box-2" ng-show="vm.reg_step === 2">
 			<form id="reg-form-step2">
-				<md-input-container>
-					<label for="vm.newEmail">Email</label>
-					<input type="text" ng-model="vm.newEmail">
-				</md-input-container>
 				<md-input-container ng-hide="vm.currentUser.displayName">
 					<label for="vm.newFirstName">First Name</label>
-					<input type="password" ng-model="vm.newFirstName">
+					<input type="text" ng-model="vm.newFirstName" required>
 				</md-input-container>
 				<md-input-container ng-hide="vm.currentUser.displayName">
 					<label for="vm.newLastName">Last Name</label>
-					<input type="password" ng-model="vm.newLastName">
+					<input type="text" ng-model="vm.newLastName" required>
+				</md-input-container>
+				<md-input-container>
+					<label for="vm.newEmail">Email</label>
+					<input type="email" ng-model="vm.newEmail" required>
 				</md-input-container>
 				<div ng-show="vm.currentUser.displayName">
 					<h4 class="display-inline">Name:</h4> {{ vm.currentUser.displayName }}
@@ -60,7 +62,7 @@
 				<div ng-show="vm.currentUser.displayName">
 					<h4 class="display-inline">Name:</h4> {{ vm.currentUser.displayName }}
 				</div>
-				<input type="submit" class="md-button md-raised md-primary" ng-click="vm.verify_step2()">
+				<input type="submit" class="md-button md-raised md-primary" ng-click="vm.verify_step3()">
 			</form>
 		</div>
 	</div>
