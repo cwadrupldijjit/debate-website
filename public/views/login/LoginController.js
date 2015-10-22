@@ -6,17 +6,20 @@ app.controller('LoginController', ['LoginService', function(LoginService) {
 	vm.test = 'test';
 	
 	vm.login_local = function() {
-		var result = LoginService.login_local({
+		LoginService.login_local({
 			username: vm.username,
 			password: vm.password
-		});
+		})
+			.then(function(result) {
+				
+				if (!result.data) {
+					return console.log(result);
+				}
+				
+				vm.currentUser = result;
+				console.log(vm.currentUser);
+			});
 		
-		if (!result) {
-			return console.log(result);
-		}
-		
-		vm.currentUser = result;
-		console.log('this worked');
 	};
 	
 	vm.login_facebook = function() {

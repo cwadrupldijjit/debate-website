@@ -63,13 +63,13 @@ app.get('/auth/twitter/callback', passport.authenticate('twitter', {
 	console.log(req.session);
 });
 
-app.get('/auth/google', passport.authenticate('twitter'));
-app.get('/auth/google/callback', passport.authenticate('google', {
-	successRedirect: '/me',
-	failureRedirect: '/login'
-}), function(req, res) {
-	console.log(req.session);
-});
+// app.get('/auth/google', passport.authenticate('google'));
+// app.get('/auth/google/callback', passport.authenticate('google', {
+// 	successRedirect: '/me',
+// 	failureRedirect: '/login'
+// }), function(req, res) {
+// 	console.log(req.session);
+// });
 
 app.get('/logout', function(req, res) {
 	req.logout();

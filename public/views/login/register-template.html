@@ -1,15 +1,15 @@
 <div id="register-view" class="route-container flex-container relative">
 	<div class="register-box direct-center-box">
-		<h5><b>NOTE:</b> This form will create a registration request which will be approved by an administrator.
+		<h5 ng-hide="vm.reg_step === 4"><b>NOTE:</b> This form will create a registration request which will be approved by an administrator.
 		In order to make sure that your request will be processed successfully and to ensure that you will be up
 		and running as soon as possible, please fill out the following form to the best of your ability.</h5>
 		
-		<h4 class="text-right">Step {{ vm.reg_step }}</h4>
+		<h4 class="text-right" ng-show="vm.reg_step < 4">Step {{ vm.reg_step }}</h4>
 		
 		<div id="local-reg-box" ng-show="vm.reg_step === 1">
 			<form id="local-reg-form">
 				<md-input-container>
-					<label for="vm.newUsername">Username</label>
+					<label for="vm.newUserName">Username</label>
 					<input type="text" ng-model="vm.newUsername" required>
 				</md-input-container>
 				<md-input-container>
@@ -28,11 +28,11 @@
 			<form id="reg-form-step2">
 				<md-input-container ng-hide="vm.currentUser.displayName">
 					<label for="vm.newFirstName">First Name</label>
-					<input type="text" ng-model="vm.newFirstName" required>
+					<input type="text" ng-model="vm.newFirstName" ng-required="!vm.OAuthData">
 				</md-input-container>
 				<md-input-container ng-hide="vm.currentUser.displayName">
 					<label for="vm.newLastName">Last Name</label>
-					<input type="text" ng-model="vm.newLastName" required>
+					<input type="text" ng-model="vm.newLastName"  ng-required="!vm.OAuthData">
 				</md-input-container>
 				<md-input-container>
 					<label for="vm.newEmail">Email</label>
@@ -48,6 +48,7 @@
 		<div id="reg-box-3" ng-show="vm.reg_step === 3">
 			<h4>Suggestion:</h4>
 			<p>Make your question/answer combinations as obscure as you can make it while still being memorable to you so you can remember it in case you forget your password.</p>
+			
 			<form id="reg-form-step3">
 				<md-input-container>
 					<label for="vm.securityQ1">Security Question 1</label>
@@ -58,6 +59,8 @@
 					<input type="text" ng-model="vm.securityA1" required>
 				</md-input-container>
 				
+				<hr>
+				
 				<md-input-container>
 					<label for="vm.securityQ2">Security Question 2</label>
 					<input type="text" ng-model="vm.securityQ2" required>
@@ -66,6 +69,8 @@
 					<label for="vm.securityA2">Answer</label>
 					<input type="text" ng-model="vm.securityA2" required>
 				</md-input-container>
+				
+				<hr>
 				
 				<md-input-container>
 					<label for="vm.securityQ3">Security Question 3</label>
@@ -78,6 +83,10 @@
 				
 				<input type="submit" class="md-button md-raised md-primary" ng-click="vm.verify_step3()">
 			</form>
+		</div>
+		
+		<div id="reg-box-4" ng-show="vm.reg_step === 4">
+			Congratz!
 		</div>
 	</div>
 </div>

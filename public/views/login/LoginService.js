@@ -1,31 +1,21 @@
 app.service('LoginService', ['$http', '$q', function($http, $q) {
 	var serv = this;
 	
-	serv.users = [
-		{
-			username: 'test',
-			password: 'test',
-			id: '1234567',
-			avatar: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/UserAvatar.svg/2000px-UserAvatar.svg.png'
-		}
-	];
-	
 	serv.login_local = function(loginData) {
 		if (!loginData.username) {
 			console.log('No login data submitted');
 		} else {
-			for (var i = 0; i < serv.users.length; i++) {
-				if (serv.users[i].username === loginData.username) {
-					if (serv.users[i].username === loginData.password) {
-						console.log('user authenticated successfully');
-						return serv.users[i];
-					}
-					console.log('Password doesn\'t match');
-					return null;
-				}
-			}
+			var deferred = $q.defer();
 			
-			console.log('no user data is found for the username provided');
+			$http.post('/auth/local', loginData)
+				.then(function(result) {
+					if (!result)
+						deferred.resolve({msg: 'Problem logging in'});
+					console.log(result);
+					deferred.resolve(result.data);
+				});
+			
+			return deferred.promise;
 		}
 		
 		return null;
@@ -36,7 +26,6 @@ app.service('LoginService', ['$http', '$q', function($http, $q) {
 		
 		$http.get('/username/' + username)
 			.then(function(result) {
-				console.log(result);
 				deferred.resolve(result);
 			});
 			
@@ -59,6 +48,20 @@ app.service('LoginService', ['$http', '$q', function($http, $q) {
 						deferred.resolve({msg: 'Perfect!  Continuing on to step 2', data: result});
 				});
 		}
+		
+		return deferred.promise;
+	};
+	
+	serv.createUser = function(userData) {
+		var deferred = $q.defer();
+		
+		$http.post('/user', userData)
+			.then(function(user) {
+				if (!user) 
+					return deferred.resolve({msg: 'User create error', data: user})
+				console.log(user);
+				deferred.resolve(user)
+			});
 		
 		return deferred.promise;
 	};

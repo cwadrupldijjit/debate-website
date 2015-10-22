@@ -29,6 +29,30 @@ app.controller('RegisterController', ['LoginService', function(LoginService) {
 	};
 	
 	vm.verify_step3 = function() {
-		// if
+		// if ( (vm.securityQ1 && vm.securityA1) &&
+		// 	 (vm.securityQ2 && vm.SecurityA2) &&
+		// 	 (vm.securityQ3 && vm.securityA3) ) {
+			
+			LoginService.createUser({
+				name: vm.newFirstName + ' ' + vm.newLastName,
+				username: vm.newUsername,
+				email: vm.newEmail,
+				password: vm.newPassword,
+				createdOn: new Date(),
+				security: {
+					questions: [
+						{ questionNum: 1, question: vm.securityQ1, answer: vm.securityA1 },
+						{ questionNum: 2, question: vm.securityQ2, answer: vm.securityA2 },
+						{ questionNum: 3, question: vm.securityQ3, answer: vm.securityA3 }
+					]
+				}
+			})
+				.then(function(data) {
+					console.log(data);
+					vm.currentUser = data.data.data;
+				});
+			
+			vm.reg_step = 4;
+		// }
 	};
 }]);

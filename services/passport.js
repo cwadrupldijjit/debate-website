@@ -3,7 +3,7 @@ var passport = require('passport'),
 	LocalStrategy = require('passport-local').Strategy,
 	FacebookStrategy = require('passport-facebook').Strategy,
 	TwitterStrategy = require('passport-twitter').Strategy,
-	GoogleStrategy = require('passport-google').Strategy,
+	// GoogleStrategy = require('passport-google').Strategy,
 	
 	User = require('../Models/UserModel');
 
@@ -50,14 +50,14 @@ passport.use(new TwitterStrategy({
 	});
 }))
 
-passport.use(new GoogleStrategy({
-	returnURL: 'http://localhost:8877/#/register/step-2',
-	realm: 'http://localhost:8877/'
-}, function(identifier, profile, done) {
-	User.findOrCreate({ openId: identifier }, function(err, user) {
-		done(err, user);
-	});
-}));
+// passport.use(new GoogleStrategy({
+// 	returnURL: 'http://localhost:8877/#/register/step-2',
+// 	realm: 'http://localhost:8877/'
+// }, function(identifier, profile, done) {
+// 	User.findOrCreate({ openId: identifier }, function(err, user) {
+// 		done(err, user);
+// 	});
+// }));
 
 
 
