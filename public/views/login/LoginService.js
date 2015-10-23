@@ -84,8 +84,10 @@ app.service('LoginService', ['$http', '$q', '$location', function($http, $q, $lo
 			.then(function(result) {
 				deferred.resolve(result.data);
 			}, function(err) {
-				$location.path('/')
+				$location.path('/');
 			});
+		
+		return deferred.promise;
 	};
 	
 	
@@ -94,7 +96,7 @@ app.service('LoginService', ['$http', '$q', '$location', function($http, $q, $lo
 		$http.get('/logout')
 			.then (function(result) {
 				console.log('Goodbye!');
-				$location.path('/')
+				$location.path('/');
 			})
 	};
 }]);

@@ -1,13 +1,6 @@
 /// <reference path="../../typings/angularjs/angular.d.ts" />
 var app = angular.module('MainApp', ['ngRoute', 'ui.router', 'ngMaterial', 'perfectParallax']);
-app.config(['$routeProvider', '$stateProvider', '$urlRouterProvider', '$locationProvider', function ($routeProvider, $stateProvider, $urlRouterProvider, $locationProvider) {
-        // $routeProvider
-        // 	.when('/', {
-        // 		templateUrl: '../views/home/home-template.html',
-        // 		controller: 'HomeController',
-        // 		controllerAs: 'vm'
-        // 	})
-        // 	.otherwise({redirectTo: '/'});
+app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', function ($stateProvider, $urlRouterProvider, $locationProvider) {
         $stateProvider
             .state('home', {
             url: '/',
@@ -28,7 +21,7 @@ app.config(['$routeProvider', '$stateProvider', '$urlRouterProvider', '$location
             controllerAs: 'vm'
         })
             .state('user-dashboard', {
-            url: '/user/:id',
+            url: '/dashboard',
             templateUrl: '/views/user-dashboard/user-dashboard-template.html',
             controller: 'UserDashboardController',
             controllerAs: 'vm'

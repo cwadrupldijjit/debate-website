@@ -18,7 +18,7 @@ app.controller('LoginController', ['LoginService', '$location', '$state', functi
 				
 				vm.currentUser = result;
 				
-				$state.go('user-dashboard', {id: vm.currentUser._id});
+				$state.go('user-dashboard');
 			});
 		
 	};
