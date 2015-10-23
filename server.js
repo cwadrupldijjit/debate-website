@@ -24,7 +24,8 @@ var UserController = require('./controllers/UserController');
 
 var isAuthed = function(req, res, next) {
 	if (!req.isAuthenticated())
-		return res.sendStatus(401);
+		return res.status(401)
+				  .send('No user is currently logged in.');
 	
 	return next();
 };

@@ -1,4 +1,4 @@
-app.service('LoginService', ['$http', '$q', function($http, $q) {
+app.service('LoginService', ['$http', '$q', '$location', function($http, $q, $location) {
 	var serv = this;
 	
 	serv.login_local = function(loginData) {
@@ -66,5 +66,34 @@ app.service('LoginService', ['$http', '$q', function($http, $q) {
 			});
 		
 		return deferred.promise;
+	};
+	
+	serv.getUser = function() {
+		$http.get('/user')
+			.then(function(result) {
+				console.log(result.data);
+			}, function(err) {
+				console.log('No user is currently logged in.');
+			});
+	};
+	
+	serv.isAuthed = function() {
+		var deferred = $q.defer();
+		
+		$http.get('/user')
+			.then(function(result) {
+				deferred.resolve(result.data);
+			}, function(err) {
+				$location.path('/')
+			});
+	};
+	
+	
+	
+	serv.logout = function() {
+		$http.get('/logout')
+			.then (function(result) {
+				console.log('Goodbye!');
+			})
 	};
 }]);
