@@ -1,6 +1,6 @@
 /* global app */
 // testing to see if user authentication worked.
-app.controller('LoginController', ['LoginService', '$location', function(LoginService, $location) {
+app.controller('LoginController', ['LoginService', '$location', '$state', function(LoginService, $location, $state) {
 	var vm = this;
 	
 	vm.test = 'test';
@@ -18,8 +18,7 @@ app.controller('LoginController', ['LoginService', '$location', function(LoginSe
 				
 				vm.currentUser = result;
 				
-				$location.path('#/user/' + vm.currentUser._id);
-				// console.log(vm.currentUser);
+				$state.go('user-dashboard', {id: vm.currentUser._id});
 			});
 		
 	};
