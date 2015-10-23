@@ -51,7 +51,7 @@ passport.use(new TwitterStrategy({
 }))
 
 // passport.use(new GoogleStrategy({
-// 	returnURL: 'http://localhost:8877/#/register/step-2',
+// 	returnURL: 'http://localhost:8877/auth/google/callback',
 // 	realm: 'http://localhost:8877/'
 // }, function(identifier, profile, done) {
 // 	User.findOrCreate({ openId: identifier }, function(err, user) {

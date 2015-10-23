@@ -1,6 +1,6 @@
 /* global app */
 // testing to see if user authentication worked.
-app.controller('LoginController', ['LoginService', function(LoginService) {
+app.controller('LoginController', ['LoginService', '$location', function(LoginService, $location) {
 	var vm = this;
 	
 	vm.test = 'test';
@@ -17,14 +17,17 @@ app.controller('LoginController', ['LoginService', function(LoginService) {
 				}
 				
 				vm.currentUser = result;
-				console.log(vm.currentUser);
+				
+				$location.path('#/user/' + vm.currentUser._id);
+				// console.log(vm.currentUser);
 			});
 		
 	};
 	
-	vm.login_facebook = function() {
-		LoginService.login_facebook().then(function(result) {
-			vm.currentUser = result.data;
-		});
-	};
+	// vm.login_facebook = function() {
+	// 	LoginService.login_facebook()
+	// 		.then(function(result) {
+	// 			vm.currentUser = result.data;
+	// 		});
+	// };
 }]);

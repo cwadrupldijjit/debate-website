@@ -11,7 +11,6 @@ app.service('LoginService', ['$http', '$q', function($http, $q) {
 				.then(function(result) {
 					if (!result)
 						deferred.resolve({msg: 'Problem logging in'});
-					console.log(result);
 					deferred.resolve(result.data);
 				});
 			
@@ -20,6 +19,9 @@ app.service('LoginService', ['$http', '$q', function($http, $q) {
 		
 		return null;
 	};
+	
+	
+	// ----- METHODS FOR REGISTRATION THAT MAY EVENTUALLY AFFECT LOGIN
 	
 	serv.isUsernameTaken = function(username) {
 		var deferred = $q.defer();

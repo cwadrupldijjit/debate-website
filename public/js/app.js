@@ -26,6 +26,12 @@ app.config(['$routeProvider', '$stateProvider', '$urlRouterProvider', '$location
             templateUrl: '/views/login/register-template.html',
             controller: 'RegisterController',
             controllerAs: 'vm'
+        })
+            .state('user-dashboard', {
+            url: '/user/:id',
+            templateUrl: '/views/user-dashboard/user-dashboard-template.html',
+            controller: 'UserDashboardController',
+            controllerAs: 'vm'
         });
         $urlRouterProvider.otherwise('/');
     }]);
