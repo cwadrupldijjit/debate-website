@@ -12,7 +12,7 @@ app.controller('LoginController', ['LoginService', '$location', function(LoginSe
 		})
 			.then(function(result) {
 				
-				if (!result.data) {
+				if (!result.username) {
 					return console.log(result);
 				}
 				
