@@ -6,4 +6,6 @@ app.controller('UserDashboardController', ['LoginService', '$stateParams', funct
 		.then(function(result) {
 			vm.user = result;
 		});
+	
+	
 }]);
