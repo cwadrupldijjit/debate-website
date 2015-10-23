@@ -13,7 +13,9 @@ app.controller('MainController', ['LoginService', function(LoginService) {
 	
 	vm.closeMain = function() {
 		vm.isMainOpen = false;
+	};
+	
+	vm.logout = function() {
 		LoginService.logout();
-		
 	};
 }]);

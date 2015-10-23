@@ -94,6 +94,7 @@ app.service('LoginService', ['$http', '$q', '$location', function($http, $q, $lo
 		$http.get('/logout')
 			.then (function(result) {
 				console.log('Goodbye!');
+				$location.path('/')
 			})
 	};
 }]);

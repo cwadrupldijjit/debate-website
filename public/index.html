@@ -25,8 +25,9 @@
 				<nav><a href="#/gallery"><md-button class="sidenav-button menu-button" ng-click="mc.closeMain()">Gallery</md-button></a></nav>
 				<nav><a ui-sref="login"><md-button class="sidenav-button menu-button" ng-click="mc.closeMain()">Log In</md-button></a></nav>
 				<nav><a href="#/account"><md-button class="sidenav-button menu-button" ng-click="mc.closeMain()">Account</md-button></a></nav>
+				<nav><a ui-sref="user-dashboard"><md-button class="sidenav-button menu-button" ng-click="mc.closeMain()">Dashboard</md-button></a></nav>
 				<nav><a href="#/admin"><md-button class="sidenav-button menu-button" ng-click="mc.closeMain()">Admin</md-button></a></nav>
-				<nav><a href="#/logout"><md-button class="sidenav-button menu-button" ng-click="mc.closeMain()">Log Out</md-button></a></nav>
+				<nav><a ng-click="mc.logout()"><md-button class="sidenav-button menu-button" ng-click="mc.closeMain()">Log Out</md-button></a></nav>
 			</div>
 		</md-sidenav>
 		
