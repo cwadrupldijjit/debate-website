@@ -323,6 +323,22 @@ md-sidenav, .md-sidenav-backdrop {
 					background-color: #A3000A;
 				}
 
+
+//    ----------------------------------------    DASBOARD VIEW
+
+#dashboard-profile {
+	flex: 1;
+}
+
+#dashboard-quick-links {
+	flex: 2;
+}
+
+#dashboard-streams {
+	flex: 1;
+}
+
+
 //    -------------------------------------------    PROFILE, ETC
 
 .avatar-small {
@@ -330,4 +346,4 @@ md-sidenav, .md-sidenav-backdrop {
 	height: 50px;
 	
 	margin: 5px;
-} 
+}
