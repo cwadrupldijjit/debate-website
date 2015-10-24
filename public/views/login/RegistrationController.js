@@ -54,9 +54,9 @@ app.controller('RegisterController', ['LoginService', '$state', function(LoginSe
 					]
 				}
 			})
-				.then(function(data) {
-					console.log(data);
-					vm.currentUser = data.data.data;
+				.then(function(result) {
+					// console.log(result);
+					vm.currentUser = result.data.data;
 				});
 			
 			vm.reg_step = 4;
