@@ -37,6 +37,10 @@ a:hover {
 	text-decoration: underline;
 }
 
+md-card {
+	overflow: hidden;
+}
+
 
 /* ----------------------- CUSTOM GENERAL CLASSES */
 
@@ -61,7 +65,13 @@ a:hover {
 }
 
 .pull-left {
+	display: block;
 	float: left;
+}
+
+.pull-right {
+	display: block;
+	float: right;
 }
 
 .centered {
@@ -74,6 +84,17 @@ a:hover {
 
 .text-right {
 	text-align: right;
+}
+
+.no-select {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+	
+	cursor:  default;
 }
 
 
@@ -176,6 +197,43 @@ md-sidenav, .md-sidenav-backdrop {
 		.sidenav-button {
 			width: 100%;
 		}
+
+
+//    -----------------------------  VIEW DEFAULTS
+
+.page-title {
+	margin: 5px auto;
+	padding: 8px;
+	
+	width: 500px;
+	
+	font-size: 16pt;
+	text-align: center;
+	text-transform: uppercase;
+	font-weight: bolder;
+	
+	transition: all .5s;
+}
+
+		.page-title:hover {
+			background-color: rgba(255, 255, 255, .4);
+			box-shadow: 0 0 5px white;
+			
+			border-radius: 5px;
+		}
+
+	.title-container {
+		height: 0px;
+		width: 100%;
+		
+		position: fixed;
+		top: 0;
+		left: 0;
+		
+		z-index: 125;
+		
+		/*overflow: visible;*/
+	}
 
 
 /* ----------------------------- HOME VIEW */
@@ -326,12 +384,25 @@ md-sidenav, .md-sidenav-backdrop {
 
 //    ----------------------------------------    DASBOARD VIEW
 
+#dashboard-profile, #dashboard-quick-links, #dasboard-streams {
+	display: block;
+}
+
 #dashboard-profile {
 	flex: 1;
 }
 
 #dashboard-quick-links {
 	flex: 2;
+	
+	h3 {
+		margin: 0;
+		padding: .5em 10px;
+		
+		background-color: #206B3D;
+		
+		color: white;
+	}
 }
 
 #dashboard-streams {
@@ -346,4 +417,9 @@ md-sidenav, .md-sidenav-backdrop {
 	height: 50px;
 	
 	margin: 5px;
+}
+
+.avatar-large {
+	width: 150px;
+	height: 150px;
 }

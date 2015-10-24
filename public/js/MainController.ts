@@ -5,7 +5,10 @@ app.controller('MainController', ['LoginService', '$scope', function(LoginServic
 	
 	vm.currentUser = {};
 	
-	LoginService.getUser();
+	LoginService.getUser()
+		.then(function(result) {
+			vm.currentUser = result;
+		});
 	
 	vm.isMainOpen = false;
 	

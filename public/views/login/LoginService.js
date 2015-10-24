@@ -77,6 +77,8 @@ app.service('LoginService', ['$http', '$q', '$location', function($http, $q, $lo
 				deferred.resolve(result.data);
 			}, function(err) {
 				console.log('No user is currently logged in.');
+				
+				deferred.resolve({});
 			});
 		
 		return deferred.promise;

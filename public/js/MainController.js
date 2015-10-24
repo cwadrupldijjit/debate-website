@@ -2,7 +2,10 @@
 app.controller('MainController', ['LoginService', '$scope', function (LoginService, $scope) {
         var vm = this;
         vm.currentUser = {};
-        LoginService.getUser();
+        LoginService.getUser()
+            .then(function (result) {
+            vm.currentUser = result;
+        });
         vm.isMainOpen = false;
         vm.openMain = function () {
             vm.isMainOpen = true;

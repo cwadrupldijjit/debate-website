@@ -1,7 +1,14 @@
 <div class="route-container" id="user-dashboard-view">
+	<div class="title-container no-select">
+		<div class="page-title">Dashboard</div>
+	</div>
+	
 	<div layout="row" layout-md="column" layout-sm="column">
 		<md-card id="dashboard-profile">
-			you have reached the dashboard for {{ vm.user.username }}
+			<img class="avatar-large pull-left" ng-src="{{vm.user.avatar}}">
+			<p>
+				you have reached the dashboard for {{ vm.user.username }}
+			</p>
 		</md-card>
 		
 		<md-card id="dashboard-quick-links">

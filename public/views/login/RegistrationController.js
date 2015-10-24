@@ -1,5 +1,12 @@
-app.controller('RegisterController', ['LoginService', function(LoginService) {
+app.controller('RegisterController', ['LoginService', '$state', function(LoginService, $state) {
 	var vm = this;
+	
+	LoginService.getUser()
+		.then(function(result) {
+			if (result.username) {
+				$state.go('user-dashboard');
+			}
+		})
 	
 	vm.reg_step = 1;
 	
