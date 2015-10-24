@@ -1,5 +1,5 @@
 /// <reference path="app.ts" />
-app.controller('MainController', ['LoginService', function (LoginService) {
+app.controller('MainController', ['LoginService', '$scope', function (LoginService, $scope) {
         var vm = this;
         LoginService.getUser();
         vm.isMainOpen = false;
@@ -12,4 +12,7 @@ app.controller('MainController', ['LoginService', function (LoginService) {
         vm.logout = function () {
             LoginService.logout();
         };
+        $scope.$watch(LoginService.getUser(), function (newValue) {
+            console.log(newValue);
+        });
     }]);
