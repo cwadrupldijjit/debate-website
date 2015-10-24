@@ -19,6 +19,7 @@
 		</header>
 		
 		<md-sidenav md-is-open="mc.isMainOpen">
+			<h4 ng-show="mc.currentUser.username">Welcome, {{mc.currentUser.username}}</h4>
 			<div>
 				<nav><a ui-sref="home"><md-button class="sidenav-button menu-button" ng-click="mc.closeMain()">Home</md-button></a></nav>
 				<nav><a href="#/calendar"><md-button class="sidenav-button menu-button" ng-click="mc.closeMain()">Calendar</md-button></a></nav>

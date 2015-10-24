@@ -3,6 +3,8 @@
 app.controller('MainController', ['LoginService', '$scope', function(LoginService, $scope) {
 	var vm = this;
 	
+	vm.currentUser = {};
+	
 	LoginService.getUser();
 	
 	vm.isMainOpen = false;
@@ -20,9 +22,11 @@ app.controller('MainController', ['LoginService', '$scope', function(LoginServic
 	};
 	
 	$scope.$watch(
-		LoginService.getUser(),
+		function() {
+			return LoginService.currentUser;
+		},
 		function(newValue) {
-			console.log(newValue);
+			vm.currentUser = newValue;
 		}
 	);
 }]);

@@ -3,7 +3,12 @@
 app.controller('LoginController', ['LoginService', '$location', '$state', function(LoginService, $location, $state) {
 	var vm = this;
 	
-	vm.test = 'test';
+	LoginService.getUser()
+		.then(function(result) {
+			if (result.username) {
+				$state.go('user-dashboard');
+			}
+		})
 	
 	vm.login_local = function() {
 		LoginService.login_local({
