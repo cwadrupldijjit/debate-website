@@ -19,16 +19,19 @@
 		</header>
 		
 		<md-sidenav md-is-open="mc.isMainOpen">
-			<h4 ng-show="mc.currentUser.username">Welcome, {{mc.currentUser.username}}</h4>
+			<div ng-show="mc.currentUser.username" layout="row">
+				<img ng-src="{{ mc.currentUser.avatar }}" class="avatar-small">
+				<h4>Welcome, {{mc.currentUser.username}}</h4>
+			</div>
 			<div>
 				<nav><a ui-sref="home"><md-button class="sidenav-button menu-button" ng-click="mc.closeMain()">Home</md-button></a></nav>
 				<nav><a href="#/calendar"><md-button class="sidenav-button menu-button" ng-click="mc.closeMain()">Calendar</md-button></a></nav>
 				<nav><a href="#/gallery"><md-button class="sidenav-button menu-button" ng-click="mc.closeMain()">Gallery</md-button></a></nav>
-				<nav><a ui-sref="login"><md-button class="sidenav-button menu-button" ng-click="mc.closeMain()">Log In</md-button></a></nav>
-				<nav><a href="#/account"><md-button class="sidenav-button menu-button" ng-click="mc.closeMain()">Account</md-button></a></nav>
-				<nav><a ui-sref="user-dashboard"><md-button class="sidenav-button menu-button" ng-click="mc.closeMain()">Dashboard</md-button></a></nav>
-				<nav><a href="#/admin"><md-button class="sidenav-button menu-button" ng-click="mc.closeMain()">Admin</md-button></a></nav>
-				<nav><a ng-click="mc.logout()"><md-button class="sidenav-button menu-button" ng-click="mc.closeMain()">Log Out</md-button></a></nav>
+				<nav ng-hide="mc.currentUser.username"><a ui-sref="login"><md-button class="sidenav-button menu-button" ng-click="mc.closeMain()">Log In</md-button></a></nav>
+				<nav ng-show="mc.currentUser.username"><a href="#/account"><md-button class="sidenav-button menu-button" ng-click="mc.closeMain()">Account</md-button></a></nav>
+				<nav ng-show="mc.currentUser.username"><a ui-sref="user-dashboard"><md-button class="sidenav-button menu-button" ng-click="mc.closeMain()">Dashboard</md-button></a></nav>
+				<nav ng-show="mc.currentUser.isAdmin === true"><a href="#/admin"><md-button class="sidenav-button menu-button" ng-click="mc.closeMain()">Admin</md-button></a></nav>
+				<nav ng-show="mc.currentUser.username"><a ng-click="mc.logout()"><md-button class="sidenav-button menu-button" ng-click="mc.closeMain()">Log Out</md-button></a></nav>
 			</div>
 		</md-sidenav>
 		
