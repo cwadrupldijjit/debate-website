@@ -384,30 +384,39 @@ md-sidenav, .md-sidenav-backdrop {
 
 //    ----------------------------------------    DASBOARD VIEW
 
-#dashboard-profile, #dashboard-quick-links, #dasboard-streams {
-	display: block;
+#dashboard-layout-container {
+	justify-content: space-around
 }
 
-#dashboard-profile {
-	flex: 1;
-}
-
-#dashboard-quick-links {
-	flex: 2;
-	
-	h3 {
-		margin: 0;
-		padding: .5em 10px;
+	.dashboard-panels {
+		display: block;
 		
-		background-color: #206B3D;
+		height: auto;
+		min-height: auto;
 		
-		color: white;
+		h3 {
+			margin: 0;
+			padding: .5em 10px;
+			
+			background-color: #206B3D;
+			
+			color: white;
+		}
 	}
-}
-
-#dashboard-streams {
-	flex: 1;
-}
+	
+	#dashboard-profile {
+		width: 23%;
+	}
+	
+	#dashboard-quick-links {
+		width: 48%;
+	}
+	
+	#dashboard-streams {
+		width: 23%;
+		
+		box-shadow: none;
+	}
 
 
 //    -------------------------------------------    PROFILE, ETC
