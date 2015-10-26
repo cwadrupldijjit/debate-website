@@ -15,7 +15,7 @@ app.service('AdminService', ['LoginService', '$state', '$interval', '$http', '$q
 		$http.get('/new-users')
 			.then(function(result) {
 				svc.newUsers = result.data;
-				$interval(svc.getNewUsers, 30000);
+				deferred.resolve(result.data);
 			});
 		
 		return deferred.promise;

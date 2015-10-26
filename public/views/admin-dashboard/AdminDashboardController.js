@@ -11,12 +11,24 @@ app.controller('AdminDashboardController', ['LoginService', 'AdminService', '$sc
 		});
 	
 	vm.getNewUsers = function() {
-		AdminService.getNewUsers();
+		AdminService.getNewUsers()
+			.then(function(result) {
+				vm.newUsers = result;
+			});
 	}();
 	
-	$scope.$watch(function() {
-		return AdminService.newUsers;
-	}, function(newData) {
-		vm.newUsers = newData;
-	});
+	vm.acceptNewUser = function(userIndex) {
+		AdminService.acceptNewUser(vm.newUsers[userIndex])
+			.then(function(result) {
+				console.log('Success!');
+			}, function(err) {
+				console.log(err);
+			});
+	};
+	
+	vm.declineNewUser = function(userIndex) {
+		
+	};
+	
+	$interval(vm.getNewUser, 30000);
 }]);

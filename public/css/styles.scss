@@ -25,6 +25,11 @@ h1 {
 	text-align: center;
 }
 
+a.dummy-link {
+	cursor: pointer;
+	color: blue;
+}
+
 a:link {
 	text-decoration: none;
 }
@@ -33,7 +38,7 @@ a:visited {
 	color: blue;
 }
 
-a:hover {
+a:hover, a.dummy-link:hover {
 	text-decoration: underline;
 }
 
@@ -58,6 +63,10 @@ md-card {
 	
 	width: 50%;
 	left: 50%;
+}
+
+.clear-left {
+	clear: left;
 }
 
 .absolute-bottom {
@@ -396,7 +405,7 @@ md-sidenav, .md-sidenav-backdrop {
 				}
 
 
-//    ----------------------------------------    DASBOARD VIEW
+//    ----------------------------------------    DASHBOARD VIEW
 
 #dashboard-layout-container, #admin-layout-container {
 	justify-content: space-around
@@ -415,6 +424,10 @@ md-sidenav, .md-sidenav-backdrop {
 			background-color: #206B3D;
 			
 			color: white;
+		}
+		
+		.inner-content {
+			padding: 20px;
 		}
 	}
 	
@@ -438,6 +451,10 @@ md-sidenav, .md-sidenav-backdrop {
 .admin-panels {
 	flex: 1;
 }
+
+	#admin-center-panels {
+		flex: 2
+	}
 
 	#new-user-data {
 		#admin-new-users {
@@ -464,6 +481,8 @@ md-sidenav, .md-sidenav-backdrop {
 .avatar-large {
 	width: 150px;
 	height: 150px;
+	
+	margin: 0 auto;
 }
 
 
