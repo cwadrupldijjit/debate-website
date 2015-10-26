@@ -1,4 +1,4 @@
-app.controller('AdminDashboardController', ['LoginService', 'AdminService', '$state', '$interval', function(LoginService, AdminService, $state, $interval) {
+app.controller('AdminDashboardController', ['LoginService', 'AdminService', '$scope', '$state', '$interval', function(LoginService, AdminService, $scope, $state, $interval) {
 	var vm = this;
 	
 	LoginService.getUser()
@@ -11,11 +11,12 @@ app.controller('AdminDashboardController', ['LoginService', 'AdminService', '$st
 		});
 	
 	vm.getNewUsers = function() {
-		AdminService.getNewUsers()
-			.then(function(result) {
-				vm.newUsers = result;
-			});
+		AdminService.getNewUsers();
 	}();
 	
-	$interval(vm.getNewUsers, 30000);
+	$scope.$watch(function() {
+		return AdminService.newUsers;
+	}, function(newData) {
+		vm.newUsers = newData;
+	});
 }]);

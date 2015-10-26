@@ -8,6 +8,12 @@
 			<h3>Profile</h3>
 			<img class="avatar-large pull-left" ng-src="{{vm.user.avatar}}">
 			<h4>{{ vm.user.username | uppercase }}</h4>
+			<div>
+				Email: {{ vm.user.email }}
+			</div>
+			<div>
+				Name: {{ vm.user.name }}
+			</div>
 		</md-card>
 		
 		<md-card id="dashboard-quick-links" class="dashboard-panels">
@@ -20,8 +26,10 @@
 		<md-card id="dashboard-streams" class="dashboard-panels">
 			<!--<h3>Streams</h3>
 			This is where the Twitter stream will go-->
-			<a class="twitter-timeline" height="400"  href="https://twitter.com/OHS_tigerdebate" data-widget-id="657903385966829568">Tweets by @OHS_tigerdebate</a>
-            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+			<div id="twitter-widget">
+				<a class="twitter-timeline" height="400"  href="https://twitter.com/OHS_tigerdebate" data-widget-id="657903385966829568">Tweets by @OHS_tigerdebate</a>
+				<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+			</div>
 			
 			<!--where the rtfm feed will go eventually-->
 		</md-card>

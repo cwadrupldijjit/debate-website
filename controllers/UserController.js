@@ -47,7 +47,13 @@ module.exports = {
 	},
 	
 	all: function(req, res) {
-		User.find();
+		User.find()
+			.exec(function(err, users) {
+				if (err)
+					return res.send(err)
+				
+				res.json(users)
+			});
 	},
 	
 	allNew: function(req, res) {
@@ -57,6 +63,6 @@ module.exports = {
 					return res.send(err);
 				
 				res.json(users);
-			})
+			});
 	}
 };

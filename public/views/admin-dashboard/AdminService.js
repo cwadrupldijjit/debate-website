@@ -1,4 +1,4 @@
-app.service('AdminService', ['LoginService', '$state', '$http', '$q', function(LoginService, $state, $http, $q) {
+app.service('AdminService', ['LoginService', '$state', '$interval', '$http', '$q', function(LoginService, $state, $interval, $http, $q) {
 	var svc = this;
 	
 	LoginService.getUser()
@@ -14,8 +14,8 @@ app.service('AdminService', ['LoginService', '$state', '$http', '$q', function(L
 		
 		$http.get('/new-users')
 			.then(function(result) {
-				console.log(result);
-				deferred.resolve(result.data);
+				svc.newUsers = result.data;
+				$interval(svc.getNewUsers, 30000);
 			});
 		
 		return deferred.promise;

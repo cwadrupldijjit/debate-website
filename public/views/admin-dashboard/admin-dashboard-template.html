@@ -29,7 +29,7 @@
 			<p>
 				This is where the pending user requests will be.
 			</p>
-			<div ng-repeat="user in vm.newUsers" layout="column">
+			<div class="new-user-data" ng-repeat="user in vm.newUsers" layout="column">
 				<div class="name-row" layout="row">
 					<div class="data-header">
 						<b>Name:</b>
@@ -38,6 +38,7 @@
 						{{ user.name }}
 					</div>
 				</div>
+				
 				<div class="username-row" layout="row">
 					<div class="data-header">
 						<b>Username:</b>
@@ -45,6 +46,36 @@
 					<div class="data-part">
 						{{ user.username }}
 					</div>
+				</div>
+				
+				<div class="email-row" layout="row">
+					<div class="data-header">
+						<b>Email:</b>
+					</div>
+					
+					<div class="data-part">
+						{{ user.email }}
+					</div>
+				</div>
+				
+				<div class="createdon-row" layout="row">
+					<div class="data-header">
+						<b>Registered on:</b>
+					</div>
+					
+					<div class="data-part">
+						{{ user.createdOn | date: 'MM/dd/yyyy h:mm a' }}
+					</div>
+				</div>
+				
+				<div class="control-row">
+					<md-button class="md-primary md-raised">
+						Accept
+					</md-button>
+					
+					<md-button class="md-warn md-raised">
+						Deny
+					</md-button>
 				</div>
 			</div>
 		</md-card>

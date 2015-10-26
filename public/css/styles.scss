@@ -126,20 +126,26 @@ md-card {
 	z-index: 1;
 	
 	background-size: 100%;
+	
+	align-items: center;
 }
 
 .parallax-text {
-	background-color: rgba(255,255,255,.4);
-	box-shadow: 0 0 15px rgba(255,255,255,.4), 
-				0 0 5px rgba(255,255,255,.4);
+	background-color: rgba(255,255,255,.7);
+	box-shadow: 0 0 15px rgba(255,255,255,.7), 
+				0 0 5px rgba(255,255,255,.7);
 	
 	padding: 20px;
 	
 	border-radius: 5px;
 	
-	width: 500px;
+	width: 30%;
 	
 	font-size: 16pt;
+	
+	display: block;
+	
+	height: auto;
 }
 
 
@@ -174,7 +180,8 @@ header {
 		}
 		
 		.header-button {
-			outline: none;
+			position: relative;
+			z-index: 160;
 		}
 	
 
@@ -203,9 +210,12 @@ md-sidenav, .md-sidenav-backdrop {
 
 .page-title {
 	margin: 5px auto;
-	padding: 8px;
+	padding: 8px 40px;
 	
-	width: 500px;
+	width: auto;
+	
+	position: relative;
+	left: -50%;
 	
 	font-size: 16pt;
 	text-align: center;
@@ -213,6 +223,8 @@ md-sidenav, .md-sidenav-backdrop {
 	font-weight: bolder;
 	
 	transition: all .5s;
+	
+	z-index: 105;
 }
 
 		.page-title:hover {
@@ -224,13 +236,13 @@ md-sidenav, .md-sidenav-backdrop {
 
 	.title-container {
 		height: 0px;
-		width: 100%;
+		width: 50%;
 		
 		position: fixed;
 		top: 0;
-		left: 0;
+		left: 50%;
 		
-		z-index: 125;
+		z-index: 102;
 		
 		/*overflow: visible;*/
 	}
@@ -238,10 +250,12 @@ md-sidenav, .md-sidenav-backdrop {
 
 /* ----------------------------- HOME VIEW */
 
-.home-banner {
+#home-banner {
 	background-image: url('../assets/fragment-898479_1280.jpg');
 	
 	overflow: hidden;
+	
+	justify-content: space-around;
 }
 	
 	/*.home-banner div:first-child {
@@ -280,7 +294,7 @@ md-sidenav, .md-sidenav-backdrop {
 	}
 	
 	.site-welcome {
-		margin-top: 0;
+		margin: 0;
 		
 		text-align: center;
 		
@@ -425,13 +439,15 @@ md-sidenav, .md-sidenav-backdrop {
 	flex: 1;
 }
 
-	#admin-new-users {
-		.data-header {
-			width: 90px;
-		}
-		
-		.data-part {
+	#new-user-data {
+		#admin-new-users {
+			margin: 10px 0;
 			
+			padding: 0 8px;
+			
+			.data-header {
+				width: 120px;
+			}
 		}
 	}
 
@@ -448,4 +464,24 @@ md-sidenav, .md-sidenav-backdrop {
 .avatar-large {
 	width: 150px;
 	height: 150px;
+}
+
+
+@media only screen and (max-width: 959px) {
+	#dashboard-layout-container {
+		display: flex;
+		// justify-content: space-around;
+		align-items: center;
+	}
+	
+	#dashboard-profile, #dashboard-quick-links, #dashboard-streams {
+		width: 95%;
+	}
+	
+	#twitter-widget {
+		display: block;
+		margin: 0 auto;
+		
+		width: 400px;
+	}
 }
