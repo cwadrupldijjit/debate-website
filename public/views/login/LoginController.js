@@ -8,7 +8,7 @@ app.controller('LoginController', ['LoginService', '$location', '$state', functi
 			if (result.username) {
 				$state.go('user-dashboard');
 			}
-		})
+		});
 	
 	vm.login_local = function() {
 		LoginService.login_local({
@@ -16,16 +16,17 @@ app.controller('LoginController', ['LoginService', '$location', '$state', functi
 			password: vm.password
 		})
 			.then(function(result) {
-				
+				console.log(result);
 				if (!result.username) {
 					return console.log(result);
+				} else if (result.isAdmin) {
+					$state.go('admin-dashboard');
+				} else {
+					vm.currentUser = result;
+					
+					$state.go('user-dashboard');
 				}
-				
-				vm.currentUser = result;
-				
-				$state.go('user-dashboard');
 			});
-		
 	};
 	
 	// vm.login_facebook = function() {

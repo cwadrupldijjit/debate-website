@@ -25,6 +25,12 @@ app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', functio
             templateUrl: '/views/user-dashboard/user-dashboard-template.html',
             controller: 'UserDashboardController',
             controllerAs: 'vm'
+        })
+            .state('admin-dashboard', {
+            url: '/admin',
+            templateUrl: '/views/admin-dashboard/admin-dashboard-template.html',
+            controller: 'AdminDashboardController',
+            controllerAs: 'vm'
         });
         $urlRouterProvider.otherwise('/');
     }]);
