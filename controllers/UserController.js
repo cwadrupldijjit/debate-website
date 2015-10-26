@@ -53,8 +53,6 @@ module.exports = {
 	allNew: function(req, res) {
 		PendingUser.find()
 			.exec(function(err, users) {
-				console.log(err);
-				console.log(users);
 				if (err)
 					return res.send(err);
 				
