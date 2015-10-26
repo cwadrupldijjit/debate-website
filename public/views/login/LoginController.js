@@ -16,7 +16,6 @@ app.controller('LoginController', ['LoginService', '$location', '$state', functi
 			password: vm.password
 		})
 			.then(function(result) {
-				console.log(result);
 				if (!result.username) {
 					return console.log(result);
 				} else if (result.isAdmin) {

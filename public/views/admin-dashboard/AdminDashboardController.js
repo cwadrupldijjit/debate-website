@@ -3,7 +3,7 @@ app.controller('AdminDashboardController', ['LoginService', '$state', function(L
 	
 	LoginService.getUser()
 		.then(function(result) {
-			if (!result.admin) {
+			if (!result.isAdmin) {
 				return $state.go('home');
 			}
 			
