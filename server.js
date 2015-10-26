@@ -30,6 +30,15 @@ var isAuthed = function(req, res, next) {
 	return next();
 };
 
+var isAdmin = function(req, res, next) {
+	if (!req.user.isAdmin) {
+		return res.status(401)
+				  .send('You currently do not have permissions to access this data');
+	}
+	
+	return next();
+}
+
 
 app.use(bodyParser.json());
 app.use(cors());
@@ -39,6 +48,10 @@ app.use(express.static(__dirname + '/public'));
 app.post('/user', UserController.register);
 app.get('/user', isAuthed, UserController.me);
 app.put('/user', isAuthed, UserController.update);
+
+app.get('/users', isAuthed, UserController.all);
+
+app.get('/new-users', UserController.allNew);
 
 app.get('/username/:username', UserController.checkUsername);
 

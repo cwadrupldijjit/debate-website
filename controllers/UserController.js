@@ -4,7 +4,7 @@ var PendingUser = require('../Models/PendingUserModel');
 module.exports = {
 	
 	register: function(req, res) {
-		var newUser = new PendingUser(req.body);
+		var newUser = new User(req.body);
 		newUser.save(function(err, user) {
 			if (err)
 				return res.send(err);
@@ -44,5 +44,21 @@ module.exports = {
 				
 				res.json(true);
 			});
+	},
+	
+	all: function(req, res) {
+		User.find();
+	},
+	
+	allNew: function(req, res) {
+		PendingUser.find()
+			.exec(function(err, users) {
+				console.log(err);
+				console.log(users);
+				if (err)
+					return res.send(err);
+				
+				res.json(users);
+			})
 	}
 };

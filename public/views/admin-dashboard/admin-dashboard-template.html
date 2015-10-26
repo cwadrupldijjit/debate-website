@@ -13,22 +13,40 @@
 		<md-card id="admin-pending-posts" class="admin-panels">
 			<h3>Pending Posts</h3>
 			<p>
-				This is where the links to Canvas will go
+				This is where the pending posts for gallery, etc., will be
 			</p>
 		</md-card>
 		
 		<md-card id="admin-feedback" class="admin-panels">
 			<h3>Feedback</h3>
 			<p>
-				This is where the links to Canvas will go
+				This is where the current feedback queue will show
 			</p>
 		</md-card>
 		
 		<md-card id="admin-new-users" class="admin-panels">
 			<h3>New Users</h3>
 			<p>
-				
+				This is where the pending user requests will be.
 			</p>
+			<div ng-repeat="user in vm.newUsers" layout="column">
+				<div class="name-row" layout="row">
+					<div class="data-header">
+						<b>Name:</b>
+					</div>
+					<div class="data-part">
+						{{ user.name }}
+					</div>
+				</div>
+				<div class="username-row" layout="row">
+					<div class="data-header">
+						<b>Username:</b>
+					</div>
+					<div class="data-part">
+						{{ user.username }}
+					</div>
+				</div>
+			</div>
 		</md-card>
 	</div>
 </div>
