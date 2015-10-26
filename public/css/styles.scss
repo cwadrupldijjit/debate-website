@@ -384,11 +384,11 @@ md-sidenav, .md-sidenav-backdrop {
 
 //    ----------------------------------------    DASBOARD VIEW
 
-#dashboard-layout-container {
+#dashboard-layout-container, #admin-layout-container {
 	justify-content: space-around
 }
 
-	.dashboard-panels {
+	.dashboard-panels, .admin-panels {
 		display: block;
 		
 		height: auto;
@@ -417,6 +417,13 @@ md-sidenav, .md-sidenav-backdrop {
 		
 		box-shadow: none;
 	}
+
+
+//    ---------------------------------------    ADMIN DASHBOARD
+
+.admin-panels {
+	flex: 1;
+}
 
 
 //    -------------------------------------------    PROFILE, ETC

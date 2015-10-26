@@ -1,5 +1,4 @@
 /* global app */
-// testing to see if user authentication worked.
 app.controller('LoginController', ['LoginService', '$location', '$state', function(LoginService, $location, $state) {
 	var vm = this;
 	

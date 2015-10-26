@@ -1,5 +1,34 @@
 <div id="admin-dashboard" class="route-container">
-	<md-card>
+	<div class="title-container no-select">
+		<div class="page-title">Admin Dashboard</div>
+	</div>
+	
+	<div id="admin-layout-container" layout="row" layout-md="column" layout-sm="column">
+		<md-card id="admin-profile" class="admin-panels">
+			<h3>Profile</h3>
+			<img class="avatar-large pull-left" ng-src="{{vm.user.avatar}}">
+			<h4>{{ vm.user.username | uppercase }}</h4>
+		</md-card>
 		
-	</md-card>
+		<md-card id="admin-pending-posts" class="admin-panels">
+			<h3>Pending Posts</h3>
+			<p>
+				This is where the links to Canvas will go
+			</p>
+		</md-card>
+		
+		<md-card id="admin-feedback" class="admin-panels">
+			<h3>Feedback</h3>
+			<p>
+				This is where the links to Canvas will go
+			</p>
+		</md-card>
+		
+		<md-card id="admin-new-users" class="admin-panels">
+			<h3>New Users</h3>
+			<p>
+				
+			</p>
+		</md-card>
+	</div>
 </div>

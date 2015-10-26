@@ -7,7 +7,6 @@ app.controller('AdminDashboardController', ['LoginService', '$state', function(L
 				return $state.go('home');
 			}
 			
-			vm.currentUser = result;
-			console.log(vm.currentUser);
+			vm.user = result;
 		});
 }]);
