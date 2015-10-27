@@ -29,7 +29,7 @@
     "gulp-typescript": "^2.9.2",
     "gulp-watch": "^4.3.5",
     "mongoose": "^4.1.9",
-    "node-sass": "^3.3.3",
+    "node-sass": "^3.4.1",
     "passport": "^0.3.0",
     "passport-facebook": "^2.0.0",
     "passport-google": "^0.3.0",

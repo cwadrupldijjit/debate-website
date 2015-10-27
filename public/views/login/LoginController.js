@@ -2,6 +2,8 @@
 app.controller('LoginController', ['LoginService', '$location', '$state', function(LoginService, $location, $state) {
 	var vm = this;
 	
+	
+	
 	LoginService.getUser()
 		.then(function(result) {
 			if (result.username) {

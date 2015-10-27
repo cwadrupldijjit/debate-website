@@ -3,9 +3,9 @@ var path = require('path');
 // var pathToSassLodader
 
 module.exports = {
-	entry: [
-		path.resolve
-	],
+	
+	entry: "./public/css/styles.scss",
+	
 	module: {
 		loaders: [
 			{
@@ -13,5 +13,9 @@ module.exports = {
 				loaders: ['style', 'css', 'sass']
 			}
 		]
+	},
+	
+	output: { 
+		filename: 'styles.css'
 	}
 };

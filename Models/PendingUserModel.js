@@ -48,9 +48,4 @@ schema.pre('save', function(next) {
 	return next(null, user);
 });
 
-schema.methods.verifyPassword = function(reqBodyPassword) {
-	var user = this;
-	return bcrypt.compareSync(reqBodyPassword, user.password);
-};
-
 module.exports = mongoose.model('Pending-User', schema);
