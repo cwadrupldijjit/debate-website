@@ -11,7 +11,7 @@ module.exports = {
 			
 			user.password = null;
 			return res.send(user);
-		})
+		});
 	},
 	
 	me: function(req, res) {

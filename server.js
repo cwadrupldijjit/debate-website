@@ -20,6 +20,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 var UserController = require('./controllers/UserController');
+var FeedbackController = require('./controllers/FeedbackController')
 
 
 var isAuthed = function(req, res, next) {
@@ -56,6 +57,8 @@ app.put('/new-users/:id', isAdmin, UserController.acceptUser);
 app.delete('/new-users/:id', isAdmin, UserController.declineUser);
 
 app.get('/username/:username', UserController.checkUsername);
+
+app.post('/feedback', isAuthed, FeedbackController.addNew)
 
 
 app.post('/auth/local', passport.authenticate('local', {

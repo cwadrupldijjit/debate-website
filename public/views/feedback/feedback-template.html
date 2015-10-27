@@ -1,3 +1,31 @@
-<div class="route-container">
-	test text
+<div class="route-container full-size relative">
+	<div class="title-container no-select">
+		<div class="page-title">Feedback</div>
+	</div>
+	
+	<div class="flex-container flex-center full-size">
+		<md-card id="feedback-box">
+			<form id="feedback-form">
+				<strong>{{ vm.currentUser.username }}</strong>
+				
+				<md-input-container>
+					<label for="vm.feedbackReason">Summary of Feedback</label>
+					<md-select ng-model="vm.feedbackReason" required>
+						<md-option ng-repeat="option in vm.reasons">
+							{{ option }}
+						</md-option>
+					</md-select>
+				</md-input-container>
+				<md-input-container>
+					<label for="vm.feedbackSummary">
+						Breif explanation
+						<span ng-show="vm.feedbackReason.indexOf('Other') >= 0">(Required)</span>
+						<span ng-hide="vm.feedbackReason.indexOf('Other') >= 0">(Optional)</span>
+					</label>
+					<textarea ng-model="vm.feedbackSummary" ng-required="vm.feedbackReason.indexOf('Other') >= 0"></textarea>
+				</md-input-container>
+				<input type="submit" class="md-button md-raised md-primary" ng-click="vm.sendFeedback()">
+			</form>
+		</md-card>
+	</div>
 </div>
