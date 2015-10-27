@@ -108,7 +108,7 @@
 											<input type="email" ng-model="vm.email">
 										</md-input-container>
 										
-										<input type="submit" class="md-button md-raised md-primary edit-submit-button" ng-click="vm.updateEmail()">
+										<input type="submit" class="md-button md-raised md-primary edit-submit-button" ng-click="vm.updateItem('email')">
 										<a href="javascript:void(0)" class="cancel-link" ng-click="vm.cancelEdit('email')">Cancel</a>
 									</form>
 									<!--{{ vm.currentUser.email }}-->
@@ -117,6 +117,19 @@
 								
 								<div class="to-edit" ng-hide="vm.editModeOn.bio" ng-click="vm.editItem('bio')">
 									{{ vm.currentUser.bio || vm.standardBio + " Click to add." }}
+								</div>
+								
+								<div class="editing" ng-show="vm.editModeOn.bio" layout="row">
+									<form layout="row">
+										<md-input-container>
+											<label for="vm.tempUser.bio">bio</label>
+											<textarea ng-model="vm.tempUser.bio" rows="3"></textarea>
+										</md-input-container>
+										
+										<input type="submit" class="md-button md-raised md-primary edit-submit-button" ng-click="vm.updateItem('bio')">
+										<a href="javascript:void(0)" class="cancel-link" ng-click="vm.cancelEdit('bio')">Cancel</a>
+									</form>
+									<!--{{ vm.currentUser.email }}-->
 								</div>
 								
 								
