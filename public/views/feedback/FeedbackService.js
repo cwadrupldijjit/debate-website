@@ -41,5 +41,5 @@ app.service('FeedbackService', ['LoginService', 'AdminService', '$state', '$http
 			});
 		
 		return deferred.promise;
-	}
+	};
 }]);

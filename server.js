@@ -58,7 +58,9 @@ app.delete('/new-users/:id', isAdmin, UserController.declineUser);
 
 app.get('/username/:username', UserController.checkUsername);
 
-app.post('/feedback', isAuthed, FeedbackController.addNew)
+app.post('/feedback', isAuthed, FeedbackController.addNew);
+app.get('/feedback', isAdmin, FeedbackController.read);
+app.put('/feedback/:id', isAdmin, FeedbackController.removeOne);
 
 
 app.post('/auth/local', passport.authenticate('local', {

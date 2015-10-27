@@ -17,6 +17,16 @@ app.controller('AdminDashboardController', ['LoginService', 'AdminService', 'Fee
 			});
 	}();
 	
+	vm.markFeedbackComplete = function(feedbackIndex) {
+		FeedbackService.archiveFeedback(vm.feedback[feedbackIndex]._id)
+			.then(function(result) {
+				console.log(result);
+			}, function(err) {
+				console.log(err);
+			});
+	};
+	
+	
 	vm.getNewUsers = function() {
 		AdminService.getNewUsers()
 			.then(function(result) {
