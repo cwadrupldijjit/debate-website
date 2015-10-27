@@ -81,7 +81,12 @@ module.exports = {
 				});
 				
 				PendingUser.findByIdAndRemove(user._id)
-					.exec();
+					.exec(function(err, user) {
+						if (err)
+							return res.send(err);
+						
+						res.json(user);
+					});
 			});
 	},
 	

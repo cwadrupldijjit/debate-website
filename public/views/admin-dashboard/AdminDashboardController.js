@@ -20,7 +20,7 @@ app.controller('AdminDashboardController', ['LoginService', 'AdminService', 'Fee
 	vm.markFeedbackComplete = function(feedbackIndex) {
 		FeedbackService.archiveFeedback(vm.feedback[feedbackIndex]._id)
 			.then(function(result) {
-				console.log(result);
+				vm.feedback.splice(feedbackIndex, 1);
 			}, function(err) {
 				console.log(err);
 			});

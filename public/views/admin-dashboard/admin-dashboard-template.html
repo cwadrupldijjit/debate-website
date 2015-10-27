@@ -38,9 +38,30 @@
 			<md-card id="admin-feedback" class="">
 				<h3>Feedback</h3>
 				<div class="inner-content">
-					<p>
+					<p ng-hide="vm.feedback[0]">
 						This is where the current feedback queue will show
 					</p>
+					<div ng-repeat="feedback in vm.feedback">
+						<div class="pull-right">
+							{{ (feedback.createdOn | date: 'MM/dd/yyyy h:mm a') || 'Unavailable timestamp' }}
+						</div>
+						
+						<p>
+							<b>{{ feedback.user.name }}</b> ({{ feedback.user.username }}) chose
+						</p>
+						
+						<div class="pull-right">
+							<md-button class="md-fab md-sm md-warn" ng-click="vm.markFeedbackComplete($index)">X</md-button>
+						</div>
+						
+						<h4>"{{ feedback.reason }}"</h4>
+						
+						<p ng-show="feedback.summary">
+							and explained:
+						</p>
+						
+						<h4>"{{ feedback.summary }}"</h4>
+					</div>
 				</div>
 			</md-card>
 		</div>
