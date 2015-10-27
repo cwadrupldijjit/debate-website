@@ -63,6 +63,13 @@ app.controller('AccountController', ['LoginService', '$state', function(LoginSer
 		// POSSIBLE:  confirm the user wants to do this
 		// call the $updateemail service in angularfire
 		// update it in the users array as well
+		if (confirm('Are you sure you want to change your email?')) {
+			
+			LoginService.editItem({email: vm.tempuser.email})
+				.then(function(result) {
+					console.log(result);
+				});
+		}
 		
 	};
 }]);
