@@ -19,10 +19,12 @@ app.controller('AccountController', ['LoginService', '$state', function(LoginSer
 	function getCurrentUser() {
 		LoginService.getUser()
 			.then(function(result) {
-				console.log(result);
+				if (!result.username)
+					return $state.go('home');
+				
 				vm.currentUser = result;
 				vm.tempUser = result;
-			})
+			});
 	};
 	
 	getCurrentUser();
@@ -70,7 +72,7 @@ app.controller('AccountController', ['LoginService', '$state', function(LoginSer
 				id: vm.currentUser._id
 			})
 				.then(function(result) {
-					vm.email = result.email;
+					vm.tempUser.email = vm.email;
 					vm.editModeOn.email = false;
 				});
 		}

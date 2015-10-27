@@ -119,7 +119,6 @@ app.service('LoginService', ['$http', '$q', '$location', function($http, $q, $lo
 		
 		$http.post('/user/' + changeObj.id, changeObj)
 			.then(function(result) {
-				console.log(result.data);
 				deferred.resolve(result.data);
 			}, function(err) {
 				console.log(err);

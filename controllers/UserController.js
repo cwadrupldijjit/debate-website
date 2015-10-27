@@ -22,21 +22,11 @@ module.exports = {
 		return res.json(req.user);
 	},
 	
-	update: function(req, res, done) {
-		User.findByIdAndUpdate(req.user._id, req.body, function(err, result) {
-			if (err)
-				done(err);
-			
-			// res.sendStatus(200);
-		})
-	},
-	
 	updateAccount: function(req, res, done) {
 		User.findByIdAndUpdate(req.user._id, req.body, function(err, result) {
 			if (err)
 				done(err);
 			
-			console.log(result);
 			// res.sendStatus(200)
 			res.json(result);
 		})

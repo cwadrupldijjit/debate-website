@@ -48,7 +48,6 @@ app.use(express.static(__dirname + '/public'));
 app.post('/user/:id', isAuthed, UserController.updateAccount);
 app.post('/user', UserController.register);
 app.get('/user', isAuthed, UserController.me);
-app.put('/user', isAuthed, UserController.update);
 
 app.get('/users', isAuthed, UserController.all);
 
