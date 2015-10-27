@@ -54,7 +54,7 @@ app.controller('AccountController', ['LoginService', '$state', function(LoginSer
 		if (elem === 'email') {
 			vm.editModeOn.email = false;
 			
-			vm.tempUser.email = vm.currentUser.email.slice();
+			vm.email = vm.currentUser.email.slice();
 		}
 	};
 	
@@ -65,9 +65,13 @@ app.controller('AccountController', ['LoginService', '$state', function(LoginSer
 		// update it in the users array as well
 		if (confirm('Are you sure you want to change your email?')) {
 			
-			LoginService.editItem({email: vm.tempuser.email})
+			LoginService.editItem({
+				email: vm.email,
+				id: vm.currentUser._id
+			})
 				.then(function(result) {
-					console.log(result);
+					vm.email = result.email;
+					vm.editModeOn.email = false;
 				});
 		}
 		

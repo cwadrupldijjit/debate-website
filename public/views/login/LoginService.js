@@ -12,7 +12,9 @@ app.service('LoginService', ['$http', '$q', '$location', function($http, $q, $lo
 			$http.post('/auth/local', loginData)
 				.then(function(result) {
 					if (!result)
-						deferred.resolve({msg: 'Problem logging in'});
+						return deferred.resolve({msg: 'Problem logging in'});
+					
+					serv.currentUser = result.data;
 					deferred.resolve(result.data);
 				});
 			
@@ -108,5 +110,21 @@ app.service('LoginService', ['$http', '$q', '$location', function($http, $q, $lo
 				serv.currentUser = {};
 				$location.path('/');
 			});
+	};
+	
+	
+	
+	serv.editItem = function(changeObj) {
+		var deferred = $q.defer();
+		
+		$http.post('/user/' + changeObj.id, changeObj)
+			.then(function(result) {
+				console.log(result.data);
+				deferred.resolve(result.data);
+			}, function(err) {
+				console.log(err);
+			});
+		
+		return deferred.promise;
 	};
 }]);
