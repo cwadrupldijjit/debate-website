@@ -31,6 +31,12 @@ app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', functio
             templateUrl: '/views/admin-dashboard/admin-dashboard-template.html',
             controller: 'AdminDashboardController',
             controllerAs: 'vm'
+        })
+            .state('account', {
+            url: '/account',
+            templateUrl: '/views/account/account-template.html',
+            controller: 'AccountController',
+            controllerAs: 'vm'
         });
         $urlRouterProvider.otherwise('/');
     }]);
