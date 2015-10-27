@@ -1,5 +1,5 @@
-var Feedback = require('../models/FeedbackModel');
-var ArchiveFeedback = require('../models/FeedbackArchiveModel');
+var Feedback = require('../Models/FeedbackModel');
+var ArchiveFeedback = require('../Models/FeedbackArchiveModel');
 
 module.exports = {
 	addNew: function(req, res) {

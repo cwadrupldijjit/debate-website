@@ -1,5 +1,5 @@
 /// <reference path="../../typings/angularjs/angular.d.ts" />
-var app = angular.module('MainApp', ['ngRoute', 'ui.router', 'ngMaterial', 'perfectParallax']);
+var app = angular.module('MainApp', ['ui.router', 'ngMaterial', 'perfectParallax']);
 app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', function ($stateProvider, $urlRouterProvider, $locationProvider) {
         $stateProvider
             .state('home', {
