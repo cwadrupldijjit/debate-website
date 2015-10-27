@@ -52,6 +52,8 @@ app.put('/user', isAuthed, UserController.update);
 app.get('/users', isAuthed, UserController.all);
 
 app.get('/new-users', UserController.allNew);
+app.put('/new-users/:id', UserController.acceptUser);
+app.delete('/new-users/:id', UserController.declineUser);
 
 app.get('/username/:username', UserController.checkUsername);
 

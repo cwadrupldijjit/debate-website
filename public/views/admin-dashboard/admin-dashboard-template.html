@@ -4,13 +4,15 @@
 	</div>
 	
 	<div id="admin-layout-container" layout="row" layout-md="column" layout-sm="column">
-		<md-card id="admin-profile" class="admin-panels">
-			<h3>Profile</h3>
-			<div class="inner-content">
-				<img class="avatar-large pull-left" ng-src="{{vm.user.avatar}}">
-				<h4>{{ vm.user.username | uppercase }}</h4>
-			</div>
-		</md-card>
+		<div class="admin-panels">
+			<md-card id="admin-profile">
+				<h3>Profile</h3>
+				<div class="inner-content">
+					<img class="avatar-large" ng-src="{{vm.user.avatar}}">
+					<h4 class="text-center">{{ vm.user.username | uppercase }}</h4>
+				</div>
+			</md-card>
+		</div>
 		
 		<div id="admin-center-panels" class="admin-panels" layout="column">
 			<md-card id="admin-pending-posts" class="">
@@ -32,62 +34,64 @@
 			</md-card>
 		</div>
 		
-		<md-card id="admin-new-users" class="admin-panels">
-			<h3>New Users</h3>
-			<div class="inner-content">
-				<p>
-					This is where the pending user requests will be.
-				</p>
-				<div class="new-user-data inner-content" ng-repeat="user in vm.newUsers" layout="column">
-					<div class="name-row" layout="row">
-						<div class="data-header">
-							<b>Name:</b>
-						</div>
-						<div class="data-part">
-							{{ user.name }}
-						</div>
-					</div>
-					
-					<div class="username-row" layout="row">
-						<div class="data-header">
-							<b>Username:</b>
-						</div>
-						<div class="data-part">
-							{{ user.username }}
-						</div>
-					</div>
-					
-					<div class="email-row" layout="row">
-						<div class="data-header">
-							<b>Email:</b>
+		<div class="admin-panels">
+			<md-card id="admin-new-users">
+				<h3>New Users</h3>
+				<div class="inner-content">
+					<p>
+						This is where the pending user requests will be.
+					</p>
+					<div class="new-user-data" ng-repeat="user in vm.newUsers" layout="column">
+						<div class="name-row" layout="row">
+							<div class="data-header">
+								<b>Name:</b>
+							</div>
+							<div class="data-part">
+								{{ user.name }}
+							</div>
 						</div>
 						
-						<div class="data-part">
-							{{ user.email }}
-						</div>
-					</div>
-					
-					<div class="createdon-row" layout="row">
-						<div class="data-header">
-							<b>Registered on:</b>
+						<div class="username-row" layout="row">
+							<div class="data-header">
+								<b>Username:</b>
+							</div>
+							<div class="data-part">
+								{{ user.username }}
+							</div>
 						</div>
 						
-						<div class="data-part">
-							{{ user.createdOn | date: 'MM/dd/yyyy h:mm a' }}
+						<div class="email-row" layout="row">
+							<div class="data-header">
+								<b>Email:</b>
+							</div>
+							
+							<div class="data-part">
+								{{ user.email }}
+							</div>
 						</div>
-					</div>
-					
-					<div class="control-row">
-						<md-button class="md-primary md-raised" ng-click="vm.acceptNewUser($index)">
-							Accept
-						</md-button>
 						
-						<md-button class="md-warn md-raised" ng-click="vm.declineNewUser($index)">
-							Deny
-						</md-button>
+						<div class="createdon-row" layout="row">
+							<div class="data-header">
+								<b>Registered on:</b>
+							</div>
+							
+							<div class="data-part">
+								{{ user.createdOn | date: 'MM/dd/yyyy h:mm a' }}
+							</div>
+						</div>
+						
+						<div class="control-row">
+							<md-button class="md-primary md-raised" ng-click="vm.acceptNewUser($index)">
+								Accept
+							</md-button>
+							
+							<md-button class="md-warn md-raised" ng-click="vm.declineNewUser($index)">
+								Deny
+							</md-button>
+						</div>
 					</div>
 				</div>
-			</div>
-		</md-card>
+			</md-card>
+		</div>
 	</div>
 </div>

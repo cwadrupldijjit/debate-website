@@ -3,9 +3,9 @@ app.controller('AdminDashboardController', ['LoginService', 'AdminService', '$sc
 	
 	LoginService.getUser()
 		.then(function(result) {
-			// if (!result.isAdmin) {
-			// 	return $state.go('home');
-			// }
+			if (!result.isAdmin) {
+				return $state.go('home');
+			}
 			
 			vm.user = result;
 		});
@@ -20,15 +20,20 @@ app.controller('AdminDashboardController', ['LoginService', 'AdminService', '$sc
 	vm.acceptNewUser = function(userIndex) {
 		AdminService.acceptNewUser(vm.newUsers[userIndex])
 			.then(function(result) {
-				console.log('Success!');
+				console.log('Success!', result);
+				vm.newUsers.splice(userIndex, 1);
 			}, function(err) {
 				console.log(err);
 			});
 	};
 	
 	vm.declineNewUser = function(userIndex) {
-		
+		AdminService.declineNewUser(vm.newUsers[userIndex])
+			.then(function(result) {
+				console.log(result);
+				vm.newUsers.splice(userIndex, 1);
+			}, function(err) {
+				console.log(err);
+			});
 	};
-	
-	$interval(vm.getNewUser, 30000);
 }]);

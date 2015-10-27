@@ -449,22 +449,28 @@ md-sidenav, .md-sidenav-backdrop {
 //    ---------------------------------------    ADMIN DASHBOARD
 
 .admin-panels {
-	flex: 1;
+	flex: 3;
 }
 
 	#admin-center-panels {
-		flex: 2
+		flex: 5
 	}
 
-	#new-user-data {
+	.new-user-data {
+		
+		font-size: smaller;
+		
+		margin: 20px 0;
+		
+		.data-header {
+			min-width: 120px;
+			width: 120px;
+		}
+		
 		#admin-new-users {
 			margin: 10px 0;
 			
 			padding: 0 8px;
-			
-			.data-header {
-				width: 120px;
-			}
 		}
 	}
 
@@ -502,5 +508,22 @@ md-sidenav, .md-sidenav-backdrop {
 		margin: 0 auto;
 		
 		width: 400px;
+	}
+	
+	.dashboard-panels, .admin-panels {
+		font-size: larger;
+		
+		h3 {
+			text-align: center;
+		}
+		
+		.inner-content {
+			padding: 40px;
+		}
+	}
+	
+	.new-user-data {
+		margin: 20px 50px;
+		width: auto;
 	}
 }

@@ -64,5 +64,35 @@ module.exports = {
 				
 				res.json(users);
 			});
+	},
+	
+	acceptUser: function(req, res) {
+		PendingUser.findOne({_id: req.params.id})
+			.exec(function(err, user) {
+				if (err)
+					return res.send(err);
+				
+				var acceptedUser = new User(user);
+				acceptedUser.save(function(err, user) {
+					if (err)
+						return res.send(err);
+					
+					res.json(user);
+				});
+				
+				PendingUser.findByIdAndRemove(user._id)
+					.exec();
+			});
+	},
+	
+	declineUser: function(req, res) {
+		PendingUser.findByIdAndRemove(req.params.id)
+			.exec(function(err, done) {
+				if (err) {
+					return res.send(err);
+				}
+				
+				res.json(done);
+			});
 	}
 };
