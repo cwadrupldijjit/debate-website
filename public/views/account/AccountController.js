@@ -24,6 +24,7 @@ app.controller('AccountController', ['LoginService', '$state', function(LoginSer
 				
 				vm.currentUser = result;
 				vm.tempUser = result;
+				vm. email = vm.tempUser.email;
 			});
 	};
 	
