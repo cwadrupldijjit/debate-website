@@ -6,4 +6,4 @@ var schema = new mongoose.Schema({
 	summary: {type: String, required: true}
 });
 
-module.exports = mongoose.model('Feedback', schema);
+module.exports = mongoose.model('Archive-Feedback', schema);
