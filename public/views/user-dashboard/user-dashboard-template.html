@@ -4,42 +4,48 @@
 	</div>
 	
 	<div id="dashboard-layout-container" layout="row" layout-md="column" layout-sm="column">
-		<md-card id="dashboard-profile" class="dashboard-panels">
-			<h3>Profile</h3>
-			
-			<div class="inner-content">
-				<h5>You can see a brief view of your profile information below.  To change anything, visit your <a ui-sref="account" class="dummy-link">account</a> page.</h5>
-				<img class="avatar-large" ng-src="{{vm.user.avatar}}">
-				<h4 class="text-center">{{ vm.user.username | uppercase }}</h4>
-				<div>
-					Email: {{ vm.user.email }}
+		<div class="dashboard-panels">
+			<md-card id="dashboard-profile">
+				<h3>Profile</h3>
+				
+				<div class="inner-content">
+					<h5>You can see a brief view of your profile information below.  To change anything, visit your <a ui-sref="account" class="dummy-link">account</a> page.</h5>
+					<img class="avatar-large" ng-src="{{vm.user.avatar}}">
+					<h4 class="text-center">{{ vm.user.username | uppercase }}</h4>
+					<div>
+						<b>Email:</b> {{ vm.user.email }}
+					</div>
+					<div>
+						<b>Name:</b> {{ vm.user.name }}
+					</div>
+					<div>
+						<b>Bio:</b> {{ vm.user.bio }}
+					</div>
 				</div>
-				<div>
-					Name: {{ vm.user.name }}
-				</div>
-				<div>
-					Bio: {{ vm.user.bio }}
-				</div>
-			</div>
-		</md-card>
+			</md-card>
+		</div>
 		
-		<md-card id="dashboard-quick-links" class="dashboard-panels">
-			<h3>Quick Links</h3>
-			
-			<div class="inner-content">
-				<p>
-					This is where the links to Canvas will go
-				</p>
-			</div>
-		</md-card>
+		<div class="dashboard-panels" id="dashboard-center-panel">
+			<md-card id="dashboard-quick-links">
+				<h3>Quick Links</h3>
+				
+				<div class="inner-content">
+					<p>
+						This is where the links to Canvas will go
+					</p>
+				</div>
+			</md-card>
+		</div>
 		
-		<md-card id="dashboard-streams" class="dashboard-panels" layout="column">
-			<div id="twitter-widget">
-				<a class="twitter-timeline" data-chrome="noheader nofooter" height="400"  href="https://twitter.com/OHS_tigerdebate" data-widget-id="657903385966829568">Tweets by @OHS_tigerdebate</a>
-				<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-			</div>
-			
-			<!--where the rtfm feed will go eventually-->
-		</md-card>
+		<div class="dashboard-panels">
+			<md-card id="dashboard-streams" layout="column">
+				<div id="twitter-widget">
+					<a class="twitter-timeline" data-chrome="noheader nofooter" height="400"  href="https://twitter.com/OHS_tigerdebate" data-widget-id="657903385966829568">Tweets by @OHS_tigerdebate</a>
+					<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+				</div>
+				
+				<!--where the rtfm feed will go eventually-->
+			</md-card>
+		</div>
 	</div>
 </div>

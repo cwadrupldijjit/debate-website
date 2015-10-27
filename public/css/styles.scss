@@ -106,6 +106,10 @@ md-card {
 	cursor:  default;
 }
 
+.large-screen-closed {
+	display: none;
+}
+
 
 /* -------------------------- NON-MATERIAL FLEX */
 .flex-container {
@@ -431,19 +435,27 @@ md-sidenav, .md-sidenav-backdrop {
 		}
 	}
 	
-	#dashboard-profile {
-		width: 23%;
+	.dashboard-panels {
+		flex: 1;
 	}
 	
-	#dashboard-quick-links {
-		width: 48%;
+	#dashboard-center-panel {
+		flex: 2;
 	}
 	
-	#dashboard-streams {
-		width: 23%;
+	// #dashboard-profile {
+	// 	width: 23%;
+	// }
+	
+	// #dashboard-quick-links {
+	// 	width: 48%;
+	// }
+	
+	// #dashboard-streams {
+	// 	width: 23%;
 		
-		box-shadow: none;
-	}
+	// 	box-shadow: none;
+	// }
 
 
 //    ---------------------------------------    ADMIN DASHBOARD
@@ -475,6 +487,54 @@ md-sidenav, .md-sidenav-backdrop {
 	}
 
 
+.account-settings-container {
+	width: 100%;
+	height: 100%;
+	
+	position: relative;
+	
+	/*flex-direction: column;*/
+}
+
+	.settings-tabs {
+		background-color: white;
+	}
+	
+		.settings-tab {
+			margin: 0;
+			
+			padding: 6px 14px; 
+			
+			border-radius: 0;
+			border-bottom: 8px solid white;
+			/*width: 25%;*/
+			
+			font-weight: bolder;
+			
+			transition: all linear .2s;
+		}
+		
+		.settings-tab:hover {
+			border-bottom-color: rgba(158,158,158,0.0);
+		}
+		
+		.selected-tab {
+			border-bottom: 8px solid #37ABA0;
+		}
+		
+		.selected-tab:hover {
+			border-bottom: 8px solid #37ABA0;
+		}
+	
+	.tab-intro {
+		width: 75%;
+		max-width: 1000px;
+		margin: 20px auto;
+		
+		font-size: 14pt;
+	}
+
+
 //    -------------------------------------------    PROFILE, ETC
 
 .avatar-small {
@@ -490,6 +550,126 @@ md-sidenav, .md-sidenav-backdrop {
 	
 	margin: 0 auto;
 }
+
+.profile-view, .edit-profile-view {
+	width: 80%;
+	max-width: 1000px;
+	
+	font-size: 14pt;
+	
+	margin: 20px auto;
+	
+	background-color: rgba(255, 255, 255, .9);
+	
+	border-radius: 5px;
+	
+	overflow: hidden;
+	
+	/*position: relative;*/
+}
+	
+	.profile-view > div, .edit-profile-view > div {
+		padding: 20px;
+		
+		position: relative;
+	}
+		
+		.avatar-large {
+			height: 150px;
+			width: 150px;
+			
+			margin: 0 auto;
+		
+			box-shadow: 0 0 5px rgb(175,175,175), 2px 2px 5px rgb(100, 100, 100);
+		}
+		
+		.username-profile {
+			background-color: #B99429;
+			
+			font-size: 24pt;
+			
+			margin: 0;
+			padding: 20px;
+			
+			border-bottom-left-radius: 5px;
+			
+			position: absolute;
+			left: 0;
+			top: 0;
+			
+			width: 100%;
+		}
+		
+		.public-profile-info, .edit-profile-info {
+			margin-top: 65px;
+		}
+		
+		
+/*   ----------------------------------   EDIT PROFILE DIRECTIVE   */
+
+.edit-profile-info > div {
+	margin: .5em 0;
+	padding: .5em 10px;
+	
+	
+}
+
+	.edit-profile-info > div[ng-repeat] {
+		padding: .5em 10px;
+	}
+	
+	.to-edit {
+		transition: all linear .2s;
+	}
+	
+	.to-edit:hover {
+		background-color: rgba(158,158,158,0.3);
+		
+		cursor: pointer;
+		
+		border-radius: 3px;
+		
+	}
+		
+		.remove-selection {
+			/*background-color: rgba(158,158,158,0.0);*/
+			min-width: auto;
+			min-height: auto;
+			width: 20px;
+			height: 20px;
+			
+			margin: 0;
+			
+			border-radius: 10px;
+			
+			font-size: 8pt;
+			font-weight: bold;
+			line-height: 8pt;
+		}
+		
+		.remove-selection:hover {
+			background-color: #B51514 !important;
+			
+			/*outline: */
+		}
+		
+		.editing > form {
+			justify-content: space-around;
+			align-items: center;
+			width: 100%;
+			
+			md-input-container {
+				width: 70%;
+			}
+			
+			.cancel-link {
+				display: block;
+				
+				font-size: 10pt;
+			}
+		}
+		
+		
 
 
 @media only screen and (max-width: 959px) {
@@ -525,5 +705,27 @@ md-sidenav, .md-sidenav-backdrop {
 	.new-user-data {
 		margin: 20px 50px;
 		width: auto;
+	}
+	
+	.profile-view {
+		display: block;
+	}
+	
+	.right-profile {
+		width: 100%;
+	}
+	
+	.username-profile {
+		width: 100%;
+		
+		border-radius: 0;
+	}
+	
+	.large-screen-closed {
+		display: block;
+	}
+	
+	.small-screen-closed {
+		display: none;
 	}
 }

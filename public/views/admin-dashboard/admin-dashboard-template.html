@@ -7,9 +7,20 @@
 		<div class="admin-panels">
 			<md-card id="admin-profile">
 				<h3>Profile</h3>
+			
 				<div class="inner-content">
+					<h5>You can see a brief view of your profile information below.  To change anything, visit your <a ui-sref="account" class="dummy-link">account</a> page.</h5>
 					<img class="avatar-large" ng-src="{{vm.user.avatar}}">
 					<h4 class="text-center">{{ vm.user.username | uppercase }}</h4>
+					<div>
+						Email: {{ vm.user.email }}
+					</div>
+					<div>
+						Name: {{ vm.user.name }}
+					</div>
+					<div>
+						Bio: {{ vm.user.bio }}
+					</div>
 				</div>
 			</md-card>
 		</div>

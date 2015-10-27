@@ -1,3 +1,167 @@
 <div class="route-container">
+	<div class="title-container">
+		<div class="page-title">Account Settings</div>
+	</div>
 	
+	<article class="account-settings-container" layout="column">
+		<aside class="settings-tabs" layout="row">
+			<md-button class="settings-tab" ng-class="vm.isSelected(1)" ng-click="vm.setTab(1)" flex>
+				Public Profile
+			</md-button>
+			
+			<md-button class="settings-tab" ng-class="vm.isSelected(2)" ng-click="vm.setTab(2)" flex>
+				Edit Profile
+			</md-button>
+			
+			<md-button class="settings-tab" ng-class="vm.isSelected(3)" ng-click="vm.setTab(3)" flex>
+				Security
+			</md-button>
+			
+			<md-button class="settings-tab" ng-class="vm.isSelected(4)" ng-click="vm.setTab(4)" flex>
+				Messaging Options
+			</md-button>
+		</aside>
+		
+		<section class="settings-view" flex>
+			<div ng-if="vm.tabNum === 1">
+				<p class="tab-intro centering centered">
+					Below is how your profile looks to others. In order to change any content, click the "Edit Profile".  If you would like to change what is seen publicly, click on the "Security" tab instead.
+				</p>
+				<div class="public-profile-view">
+					<md-card class="profile-view" layout-gt-md="row" layout-md="column" layout-sm="column">
+						<div class="left-profile" flex layout="column">
+							<img alt="User Avatar" ng-src="{{ vm.currentUser.avatar }}" class="avatar-large">
+							
+							<div class="small-screen-closed stats-box">
+								stats will go here when they are available
+							</div>
+						</div>
+						
+						
+						<div class="right-profile" flex="75" layout="column">
+							<h1 class="username-profile">{{ vm.currentUser.username  || "no username defined" }}</h1>
+							
+							
+							<div class="public-profile-info">
+								<div class="large-screen-closed stats-box">
+									stats will go here when they are available
+								</div>
+								
+								<p>
+									<a ng-href="mailto: {{ vm.currentUser.email }}">{{ vm.currentUser.email || "no email defined" }}</a>
+								</p>
+								
+								<p>
+									{{ vm.currentUser.bio || vm.standardBio }}
+								</p>
+								
+								<p>
+									{{ vm.currentUser.facebookUrl || "Facebook profile url not defined" }}
+								</p>
+								
+								<p>
+									{{ vm.currentUser.twitterUrl || "no Twitter profile url defined" }}
+								</p>
+							</div>
+						</div>
+					</md-card>
+				</div>
+			</div>
+			
+			
+			
+			
+			
+			<div ng-if="vm.tabNum === 2">
+				<p class="tab-intro centering centered">
+					Below is how your profile looks to others. In order to change anything, click on the item you would like to change.
+				</p>
+				
+				<div class="edit-profile-tab">
+					<md-card class="edit-profile-view" layout-gt-md="row" layout-md="column" layout-sm="column">
+						<div class="left-profile" flex layout="column">
+							<img alt="User Avatar" ng-src="{{ vm.currentUser.avatar }}" class="avatar-large">
+							
+							<div class="small-screen-closed stats-box">
+								stats will go here when they are available
+							</div>
+						</div>
+						
+						
+						<div class="right-profile" flex="75" layout="column">
+							<h1 class="username-profile">{{ vm.currentUser.username + " &#062;&#062; click to edit"  || "no username defined" }}</h1>
+							
+							
+							<div class="edit-profile-info">
+								<div >
+									stats will go here when they are available
+								</div>
+								
+								<div class="to-edit" ng-hide="vm.editModeOn.email" ng-click="vm.editItem('email')" >
+									<a class="dummy-link">{{ vm.tempUser.email || "no email defined; click to add" }}</a>
+								</div>
+								
+								<div class="editing" ng-show="vm.editModeOn.email" layout="row">
+									<form layout="row">
+										<md-input-container>
+											<label for="vm.tempUser.email">Email</label>
+											<input type="email" ng-model="vm.tempUser.email">
+										</md-input-container>
+										
+										<input type="submit" class="md-button md-raised md-primary edit-submit-button" ng-click="vm.updateEmail()">
+										<a href="javascript:void(0)" class="cancel-link" ng-click="vm.cancelEdit('email')">Cancel</a>
+									</form>
+									<!--{{ vm.currentUser.email }}-->
+								</div>
+								
+								
+								<div class="to-edit" ng-hide="vm.editModeOn.bio" ng-click="vm.editItem('bio')">
+									{{ vm.currentUser.bio || vm.standardBio + " Click to add." }}
+								</div>
+								
+								
+								<div class="to-edit" ng-hide="vm.editModeOn.facebookUrl" ng-click="vm.editItem('facebookUrl')">
+									{{ vm.currentUser.facebookUrl || "Facebook profile url not defined; click to add" }}
+								</div>
+								
+								
+								<div class="to-edit" ng-hide="vm.editModeOn.twitterUrl" ng-click="vm.editItem('twitterUrl')">
+									{{ vm.currentUser.twitterUrl || "no Twitter profile url defined; click to add" }}
+								</div>
+							</div>
+						</div>
+					</md-card>
+				</div>
+			</div>
+			
+			
+			
+			
+			
+			<div ng-if="vm.tabNum === 3">
+				<p class="tab-intro centering centered">
+					For security settings.  Click on the item you wish to update.
+				</p>
+				
+				<div class="security-tab">
+					
+				</div>
+			</div>
+			
+			
+			
+			
+			
+			
+			<div ng-if="vm.tabNum === 4">
+				<p class="tab-intro centering centered">
+					Different Personal Messaging (PM) options.  Personal Messaging system is under construction.
+				</p>
+				
+				<div class="messaging-opt-tab">
+					
+				</div>
+			</div>
+		</section>
+	</article>
 </div>
