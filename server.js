@@ -32,7 +32,7 @@ var isAuthed = function(req, res, next) {
 
 var isAdmin = function(req, res, next) {
 	if (!req.user.isAdmin) {
-		return res.status(401)
+		return res.status(403)
 				  .send('You currently do not have permissions to access this data');
 	}
 	
@@ -51,9 +51,9 @@ app.put('/user', isAuthed, UserController.update);
 
 app.get('/users', isAuthed, UserController.all);
 
-app.get('/new-users', UserController.allNew);
-app.put('/new-users/:id', UserController.acceptUser);
-app.delete('/new-users/:id', UserController.declineUser);
+app.get('/new-users', isAdmin, UserController.allNew);
+app.put('/new-users/:id', isAdmin, UserController.acceptUser);
+app.delete('/new-users/:id', isAdmin, UserController.declineUser);
 
 app.get('/username/:username', UserController.checkUsername);
 
