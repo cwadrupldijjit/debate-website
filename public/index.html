@@ -25,9 +25,10 @@
 			</div>
 			<div>
 				<nav><a ui-sref="home"><md-button class="sidenav-button menu-button" ng-click="mc.closeMain()">Home</md-button></a></nav>
-				<nav><a href="#/calendar"><md-button class="sidenav-button menu-button" ng-click="mc.closeMain()">Calendar</md-button></a></nav>
-				<nav><a href="#/gallery"><md-button class="sidenav-button menu-button" ng-click="mc.closeMain()">Gallery</md-button></a></nav>
+				<nav><a ui-sref="calendar"><md-button class="sidenav-button menu-button" ng-click="mc.closeMain()">Calendar</md-button></a></nav>
+				<nav><a ui-sref="gallery"><md-button class="sidenav-button menu-button" ng-click="mc.closeMain()">Gallery</md-button></a></nav>
 				<nav ng-hide="mc.currentUser.username"><a ui-sref="login"><md-button class="sidenav-button menu-button" ng-click="mc.closeMain()">Log In</md-button></a></nav>
+				<nav ng-show="mc.currentUser.username"><a ui-sref="feedback"><md-button class="sidenav-button menu-button" ng-click="mc.closeMain()">Feedback</md-button></a></nav>
 				<nav ng-show="mc.currentUser.username"><a ui-sref="account"><md-button class="sidenav-button menu-button" ng-click="mc.closeMain()">Account</md-button></a></nav>
 				<nav ng-show="mc.currentUser.username"><a ui-sref="user-dashboard"><md-button class="sidenav-button menu-button" ng-click="mc.closeMain()">Dashboard</md-button></a></nav>
 				<nav ng-show="mc.currentUser.isAdmin === true"><a ui-sref="admin-dashboard"><md-button class="sidenav-button menu-button" ng-click="mc.closeMain()">Admin</md-button></a></nav>
@@ -37,7 +38,6 @@
 		
 		<article class="relative">
 			<div ui-view class="full-size"></div>
-			<!--<ng-view class="relative"></ng-view>-->
 		</article>
 		
 		<footer>
@@ -66,5 +66,6 @@
 		<script src="views/user-dashboard/UserDashboardController.js"></script>
 		<script src="views/admin-dashboard/AdminService.js"></script>
 		<script src="views/admin-dashboard/AdminDashboardController.js"></script>
+		<script src="views/feedback/FeedbackController.js"></script>
 	</body>
 </html>

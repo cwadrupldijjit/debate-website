@@ -34,9 +34,6 @@ var schema = new mongoose.Schema({
 	}
 });
 
-
-
-
 schema.pre('save', function(next) {
 	var user = this;
 	if (!user.isModified('password'))

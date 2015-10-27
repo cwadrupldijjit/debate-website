@@ -44,6 +44,13 @@ app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', functio
 			templateUrl: '/views/account/account-template.html',
 			controller: 'AccountController',
 			controllerAs: 'vm'
+		})
+		
+		.state('feedback', {
+			url: '/feedback',
+			templateUrl:'/views/feedback/feedback-template.html',
+			controller: 'FeedbackController',
+			controllerAs: 'vm'
 		});
 	
 	$urlRouterProvider.otherwise('/');
