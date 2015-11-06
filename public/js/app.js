@@ -43,6 +43,18 @@ app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', functio
             templateUrl: '/views/feedback/feedback-template.html',
             controller: 'FeedbackController',
             controllerAs: 'vm'
+        })
+            .state('calendar', {
+            url: '/calendar',
+            templateUrl: '/views/calendar/calendar-template.html',
+            controller: 'CalendarController',
+            controllerAs: 'vm'
+        })
+            .state('gallery', {
+            url: '/gallery',
+            templateUrl: '/views/gallery/gallery-template.html',
+            controller: 'GalleryController',
+            controllerAs: 'vm'
         });
         $urlRouterProvider.otherwise('/');
     }]);
