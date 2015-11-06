@@ -19,10 +19,19 @@ app.controller('AccountController', ['LoginService', '$state', function(LoginSer
 	function getCurrentUser() {
 		LoginService.getUser()
 			.then(function(result) {
-				console.log(result);
+				if (!result.username)
+					return $state.go('home');
+				
 				vm.currentUser = result;
-				vm.tempUser = result;
-			})
+				for (var key in result) {
+					if (angular.lowercase(typeof result[key]) === 'string')
+						vm.tempUser[key] = result[key].slice();
+					
+					else if (angular.lowercase(typeof result[key]) === 'array')
+						vm.tempUser[key] = result[key];
+				}
+				vm.email = vm.tempUser.email;
+			});
 	};
 	
 	getCurrentUser();
@@ -51,18 +60,39 @@ app.controller('AccountController', ['LoginService', '$state', function(LoginSer
 	};
 	
 	vm.cancelEdit = function(elem) {
+		
+		vm.editModeOn[elem] = false;
 		if (elem === 'email') {
-			vm.editModeOn.email = false;
-			
-			vm.tempUser.email = vm.currentUser.email.slice();
+			return vm[elem] = vm.currentUser[elem].slice();
 		}
+		
+		vm.tempUser[elem] = vm.currentUser[elem].slice();
 	};
 	
-	vm.updateEmail = function() {
+	vm.updateItem = function(element) {
 		
 		// POSSIBLE:  confirm the user wants to do this
 		// call the $updateemail service in angularfire
 		// update it in the users array as well
+		if(element === 'email') {
+			if (confirm('Are you sure you want to change your email?')) {
+				
+				LoginService.editItem({
+					email: vm.email,
+					id: vm.currentUser._id
+				})
+					.then(function(result) {
+						vm.tempUser.email = vm.email;
+						vm.editModeOn.email = false;
+						
+						getCurrentUser();
+					});
+			}
+		} else {
+			var updateObj = {};
+			
+			updateObj[element] = vm.tempUser[element];
+		}
 		
 	};
 }]);

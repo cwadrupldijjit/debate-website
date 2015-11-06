@@ -1,6 +1,6 @@
 /// <reference path="../../typings/angularjs/angular.d.ts" />
 
-var app = angular.module('MainApp', ['ngRoute', 'ui.router', 'ngMaterial', 'perfectParallax']);
+var app = angular.module('MainApp', ['ui.router', 'ngMaterial', 'perfectParallax']);
 
 app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', function($stateProvider, $urlRouterProvider, $locationProvider) {
 	$stateProvider
@@ -48,8 +48,22 @@ app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', functio
 		
 		.state('feedback', {
 			url: '/feedback',
-			templateUrl:'/views/feedback/feedback-template.html',
+			templateUrl: '/views/feedback/feedback-template.html',
 			controller: 'FeedbackController',
+			controllerAs: 'vm'
+		})
+		
+		.state('calendar', {
+			url: '/calendar',
+			templateUrl: '/views/calendar/calendar-template.html',
+			controller: 'CalendarController',
+			controllerAs: 'vm'
+		})
+		
+		.state('gallery',{
+			url: '/gallery',
+			templateUrl: '/views/gallery/gallery-template.html',
+			controller: 'GalleryController',
 			controllerAs: 'vm'
 		});
 	
