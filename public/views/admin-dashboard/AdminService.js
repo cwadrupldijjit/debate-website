@@ -38,7 +38,6 @@ app.service('AdminService', ['LoginService', '$state', '$interval', '$http', '$q
 		
 		$http.delete('/new-users/' + user._id)
 			.then(function(result) {
-				console.log(result);
 				deferred.resolve(result);
 			}, function(err) {
 				console.log(err);

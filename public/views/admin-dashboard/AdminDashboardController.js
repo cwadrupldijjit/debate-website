@@ -37,7 +37,6 @@ app.controller('AdminDashboardController', ['LoginService', 'AdminService', 'Fee
 	vm.acceptNewUser = function(userIndex) {
 		AdminService.acceptNewUser(vm.newUsers[userIndex])
 			.then(function(result) {
-				console.log('Success!', result);
 				vm.newUsers.splice(userIndex, 1);
 			}, function(err) {
 				console.log(err);
@@ -47,7 +46,6 @@ app.controller('AdminDashboardController', ['LoginService', 'AdminService', 'Fee
 	vm.declineNewUser = function(userIndex) {
 		AdminService.declineNewUser(vm.newUsers[userIndex])
 			.then(function(result) {
-				console.log(result);
 				vm.newUsers.splice(userIndex, 1);
 			}, function(err) {
 				console.log(err);
