@@ -7,7 +7,7 @@ var express = require('express'),
 	config = require('./config'),
 	mongoURI = config.mongoURI,
 	host = 'localhost',
-	port = config.prodPort;
+	port = config.devPort;
 
 var app = express();
 
