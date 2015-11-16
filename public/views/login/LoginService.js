@@ -32,7 +32,8 @@ app.service('LoginService', ['$http', '$q', '$location', function($http, $q, $lo
 		
 		$http.get('/username/' + username)
 			.then(function(result) {
-				deferred.resolve(result);
+				console.log(result);
+				deferred.resolve(result.data);
 			});
 			
 		return deferred.promise;
@@ -42,16 +43,36 @@ app.service('LoginService', ['$http', '$q', '$location', function($http, $q, $lo
 		var deferred = $q.defer();
 		
 		if (!registerData.username || !registerData.password || !registerData.confirmPassword) {
-			deferred.resolve({msg: 'Form wasn\'t filled out or is incomplete.  Fill out the form first and then submit.'});
+			deferred.reject({
+				msg: 'Form wasn\'t filled out or is incomplete.  Fill out the form first and then submit.'
+			});
+		} else if (registerData.password.length < 5) {
+			deferred.reject({
+				msg: 'Password is too short.  Your password must be at least 5 characters long and contain at least one letter, one number, and one special character.'
+			});
+		} else if (!registerData.password.match(/[a-zA-Z_]/) ||
+				   !registerData.password.match(/\d/) ||
+				   !registerData.password.match(/\W/)) {
+			deferred.reject({
+				msg: 'Invalid password.  Your password must be at least 5 characters long and contain at least one letter, one number, and one special character.'
+			});
 		} else if (registerData.password !== registerData.confirmPassword) {
-			deferred.resolve({msg: 'Password and Confirm Password don\'t match.  Please try retyping them.'});
+			deferred.reject({
+				msg: 'Password and Confirm Password don\'t match.  Please try retyping them.'
+			});
 		} else {
 			serv.isUsernameTaken(registerData.username)
 				.then(function(result) {
-					if (result.data)
-						deferred.resolve({msg: 'Username is already in use.  Pick a different name.', data: result.data});
+					if (result)
+						deferred.reject({
+							msg: 'Username is already in use.  Pick a different name.', 
+							data: result
+						});
 					else
-						deferred.resolve({msg: 'Perfect!  Continuing on to step 2', data: result});
+						deferred.resolve({
+							msg: 'Perfect!  Continuing on to step 2', 
+							data: result
+						});
 				});
 		}
 		
@@ -65,8 +86,7 @@ app.service('LoginService', ['$http', '$q', '$location', function($http, $q, $lo
 			.then(function(user) {
 				if (!user) 
 					return deferred.resolve({msg: 'User create error', data: user})
-				console.log(user);
-				deferred.resolve(user)
+				deferred.resolve(user.data)
 			});
 		
 		return deferred.promise;
