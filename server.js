@@ -11,6 +11,9 @@ var express = require('express'),
 
 var app = express();
 
+app.use(express.static(__dirname + '/public'));
+app.use(bodyParser.json());
+app.use(cors());
 app.use(session({
 	secret: config.sessionSecret,
 	saveUninitialized: true,
@@ -41,9 +44,6 @@ var isAdmin = function(req, res, next) {
 }
 
 
-app.use(bodyParser.json());
-app.use(cors());
-app.use(express.static(__dirname + '/public'));
 
 app.post('/user/:id', isAuthed, UserController.updateAccount);
 app.post('/user', UserController.register);

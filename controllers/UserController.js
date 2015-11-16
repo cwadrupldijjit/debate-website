@@ -35,15 +35,22 @@ module.exports = {
 	checkUsername: function(req, res) {
 		var username = req.params.username;
 		
-		User.find({username: username})
+		User.findOne({username: username})
 			.exec(function(err, user) {
 				if (err)
 					return res.send(err);
 				
-				if (!user.username)
-					return res.json(false);
+				else if (user)
+					res.json(true);
 				
-				res.json(true);
+				else PendingUser.findOne({username: username})
+							   .exec(function(err, user) {
+								   if (err) {
+									   console.error(err)
+								   } else if (user) {
+									   res.json(true)
+								   } else res.json(false);
+							   });
 			});
 	},
 	
@@ -84,9 +91,10 @@ module.exports = {
 				PendingUser.findByIdAndRemove(user._id)
 					.exec(function(err, user) {
 						if (err)
-							return res.send(err);
+							// return res.send(err);
+							console.log(err);
 						
-						res.json(user);
+						// res.json(user);
 					});
 			});
 	},

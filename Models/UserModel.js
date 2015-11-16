@@ -6,8 +6,9 @@ var bcrypt = require('bcryptjs');
 // -------------------------------------------   USER SCHEMA
 
 var schema = new mongoose.Schema({
+	_id: 		{ type: mongoose.Schema.Types.ObjectId },
 	name: 		{ type: String,  maxLength: 80, required: true },
-	username: 	{ type: String,  maxlength: 30, required: true },
+	username: 	{ type: String,  maxlength: 30, unique: true, required: true },
 	email: 		{ type: String,  maxlength: 60, required: true },
 	password: 	{ type: String },
 	createdOn: 	{ type: Date, required: true },

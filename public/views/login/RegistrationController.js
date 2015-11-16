@@ -6,7 +6,7 @@ app.controller('RegisterController', ['LoginService', '$state', function(LoginSe
 			if (result.username) {
 				$state.go('user-dashboard');
 			}
-		})
+		});
 	
 	vm.reg_step = 1;
 	
@@ -17,9 +17,11 @@ app.controller('RegisterController', ['LoginService', '$state', function(LoginSe
 			confirmPassword: vm.confirmPassword
 		}).then(function(result) {
 			// notificationBubble(result.msg);
-			if (result.data.data === false) {
+			if (result.data === false) {
 				vm.reg_step = 2;
-			}
+			} else console.error(result)
+		}, function(err) {
+			console.error(err);
 		});
 	};
 	
