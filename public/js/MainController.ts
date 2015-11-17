@@ -1,12 +1,14 @@
+// MAIN CONTROLLER (Controller for main page)
+
 /// <reference path="app.ts" />
 
-app.controller('MainController', ['LoginService', '$scope', function(LoginService, $scope) {
+app.controller('MainController', ['LoginService', '$scope', function(LoginService:any, $scope:any) {
 	var vm = this;
 	
 	vm.currentUser = {};
 	
 	LoginService.getUser()
-		.then(function(result) {
+		.then(function(result:any) {
 			vm.currentUser = result;
 		});
 	
@@ -28,7 +30,7 @@ app.controller('MainController', ['LoginService', '$scope', function(LoginServic
 		function() {
 			return LoginService.currentUser;
 		},
-		function(newValue) {
+		function(newValue:any) {
 			vm.currentUser = newValue;
 		}
 	);

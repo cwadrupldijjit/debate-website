@@ -1,30 +1,40 @@
 var gulp = require('gulp');
 var sass = require('gulp-sass');
-// var ts = require('gulp-typescript');
+var ts = require('gulp-typescript');
+var watch = require('gulp-watch');
 
 gulp.task('sass', function(done) {
-	gulp.src('public/styles/**/*.scss')
-		.pipe(sass({
-			file: './public/css/styles.css'
-		}))
-		.pipe(gulp.dest('./'))
-		.on('end', done);
+	gulp.src('public/css/**/*.scss')
+		.pipe(sass({ outFile: 'styles.css' })).on('error', sass.logError)
+		.pipe(gulp.dest('./public/css'));
 });
 
 //  BELOW TYPESCRIPT TASK DOESN'T WORK
 
-// gulp.task('tsc', function() {
-// 	gulp.src('public/**/*.scss')
-// 		.pipe(ts({
-// 			noImplicitAny: true,
-// 			outFile: 'app.js'
-// 		}))
-// 		.pipe(gulp.dest('public/js'));
-// });
-
-gulp.task('watch', function() {
-	gulp.watch('public/**/*.scss', ['sass']);
-	// gulp.watch('public/**/*.ts', ['tsc']);
+gulp.task('tsc', function() {
+	gulp.src('public/**/*.ts')
+		.pipe(ts({
+			noImplicitAny: true,
+			outFile: 'app.js'
+		}))
+		.pipe(gulp.dest('public/js'));
 });
 
-gulp.task('default', ['sass', 'watch']);
+gulp.task('watch', function() {
+	watch('public/**/*.scss', function() {
+		gulp.src('public/css/**/*.scss')
+			.pipe(sass({ outFile: 'styles.css' })).on('error', sass.logError)
+			.pipe(gulp.dest('./public/css'));
+	});
+	
+	watch('public/**/*.ts', function() {
+		gulp.src('public/**/*.ts')
+			.pipe(ts({
+				noImplicitAny: true,
+				outFile: 'app.js'
+			}))
+			.pipe(gulp.dest('public/js'));
+	});
+});
+
+gulp.task('default', ['sass', 'tsc', 'watch']);

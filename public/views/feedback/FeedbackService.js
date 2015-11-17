@@ -34,7 +34,6 @@ app.service('FeedbackService', ['LoginService', 'AdminService', '$state', '$http
 		
 		$http.get('/feedback')
 			.then(function(result) {
-				console.log(result.data);
 				deferred.resolve(result.data);
 			}, function(err) {
 				console.log(err);

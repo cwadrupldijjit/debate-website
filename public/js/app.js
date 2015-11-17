@@ -58,3 +58,33 @@ app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', functio
         });
         $urlRouterProvider.otherwise('/');
     }]);
+// MAIN CONTROLLER (Controller for main page)
+/// <reference path="app.ts" />
+app.controller('MainController', ['LoginService', '$scope', function (LoginService, $scope) {
+        var vm = this;
+        vm.currentUser = {};
+        LoginService.getUser()
+            .then(function (result) {
+            vm.currentUser = result;
+        });
+        vm.isMainOpen = false;
+        vm.openMain = function () {
+            vm.isMainOpen = true;
+        };
+        vm.closeMain = function () {
+            vm.isMainOpen = false;
+        };
+        vm.logout = function () {
+            LoginService.logout();
+        };
+        $scope.$watch(function () {
+            return LoginService.currentUser;
+        }, function (newValue) {
+            vm.currentUser = newValue;
+        });
+    }]);
+// MAIN SERVICE (So far hasn't needed to be used, may be removed later)
+/// <reference path="app.ts" />
+app.service('MainService', [function () {
+        var svc = this;
+    }]);

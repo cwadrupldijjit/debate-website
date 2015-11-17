@@ -2,7 +2,7 @@
 
 var app = angular.module('MainApp', ['ui.router', 'ngMaterial', 'perfectParallax']);
 
-app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', function($stateProvider, $urlRouterProvider, $locationProvider) {
+app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', function($stateProvider:any, $urlRouterProvider:any, $locationProvider:any) {
 	$stateProvider
 		.state('home', {
 			url: '/',
