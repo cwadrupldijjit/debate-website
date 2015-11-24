@@ -14,6 +14,8 @@ app.service('ImageService', ['$http', '$q', 'LoginService', function($http, $q, 
 			userEmail: LoginService.currentUser
 		};
 		
+		console.log(newImage);
+		
 		$http.post('/api/new-image', newImage)
 			.then(function(result) {
 				deferred.resolve(result.data);
