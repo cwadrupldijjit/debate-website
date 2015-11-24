@@ -16,7 +16,8 @@ app.use('/css', express.static(__dirname + '/../public/css'));
 app.use('/views', express.static(__dirname + '/../public/views'));
 app.use('/assets', express.static(__dirname + '/../public/assets'));
 
-app.use(bodyParser.json());
+app.use(bodyParser.json({limit: '50mb'}));
+app.use(bodyParser.urlencoded({limit: '50mb', extended: true}));
 app.use(cors());
 app.use(session({
 	secret: config.sessionSecret,
