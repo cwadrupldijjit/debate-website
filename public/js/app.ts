@@ -68,4 +68,6 @@ app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', functio
 		});
 	
 	$urlRouterProvider.otherwise('/');
+	
+	$locationProvider.html5Mode(true);
 }]);

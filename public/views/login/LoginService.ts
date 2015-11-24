@@ -1,4 +1,7 @@
-/* global app */
+//------------------------------------------- LOGIN SERVICE
+
+/// <reference path="../../js/app" />
+
 app.service('LoginService', ['$http', '$q', '$location', function($http, $q, $location) {
 	var serv = this;
 	serv.currentUser = {};

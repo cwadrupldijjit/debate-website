@@ -1,5 +1,6 @@
-/* global app */
-app.controller('LoginController', ['LoginService', '$location', '$state', function(LoginService, $location, $state) {
+/// <reference path="../../js/app" />
+
+app.controller('LoginController', ['LoginService', '$location', '$state', function(LoginService: any, $location: any, $state: any) {
 	var vm = this;
 	
 	

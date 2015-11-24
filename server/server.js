@@ -11,7 +11,15 @@ var express = require('express'),
 
 var app = express();
 
-app.use(express.static(__dirname + '/public'));
+app.use('/js', express.static(__dirname + '/../public/js'));
+app.use('/css', express.static(__dirname + '/../public/css'));
+app.use('/views', express.static(__dirname + '/../public/views'));
+app.use('/assets', express.static(__dirname + '/../public/assets'));
+
+app.all('/*', function(req, res, next) {
+	res.sendFile('index.html', {root: __dirname + '/../public'});
+});
+
 app.use(bodyParser.json());
 app.use(cors());
 app.use(session({
