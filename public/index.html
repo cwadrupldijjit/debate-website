@@ -24,15 +24,78 @@
 				<h4>Welcome, {{mc.currentUser.username}}</h4>
 			</div>
 			<div>
-				<nav><a ui-sref="home"><md-button class="sidenav-button menu-button" ng-click="mc.closeMain()">Home</md-button></a></nav>
-				<nav><a ui-sref="calendar"><md-button class="sidenav-button menu-button" ng-click="mc.closeMain()">Calendar</md-button></a></nav>
-				<nav><a ui-sref="gallery"><md-button class="sidenav-button menu-button" ng-click="mc.closeMain()">Gallery</md-button></a></nav>
-				<nav ng-hide="mc.currentUser.username"><a ui-sref="login"><md-button class="sidenav-button menu-button" ng-click="mc.closeMain()">Log In</md-button></a></nav>
-				<nav ng-show="mc.currentUser.username"><a ui-sref="feedback"><md-button class="sidenav-button menu-button" ng-click="mc.closeMain()">Feedback</md-button></a></nav>
-				<nav ng-show="mc.currentUser.username"><a ui-sref="account"><md-button class="sidenav-button menu-button" ng-click="mc.closeMain()">Account</md-button></a></nav>
-				<nav ng-show="mc.currentUser.username"><a ui-sref="user-dashboard"><md-button class="sidenav-button menu-button" ng-click="mc.closeMain()">Dashboard</md-button></a></nav>
-				<nav ng-show="mc.currentUser.isAdmin === true"><a ui-sref="admin-dashboard"><md-button class="sidenav-button menu-button" ng-click="mc.closeMain()">Admin</md-button></a></nav>
-				<nav ng-show="mc.currentUser.username"><a ng-click="mc.logout()"><md-button class="sidenav-button menu-button" ng-click="mc.closeMain()">Log Out</md-button></a></nav>
+				<nav ui-sref="home">
+					<md-button 
+						class="sidenav-button menu-button" 
+						ng-click="mc.closeMain()"
+					>
+						Home
+					</md-button>
+				</nav>
+				<nav ui-sref="calendar">
+					<md-button 
+						class="sidenav-button menu-button" 
+						ng-click="mc.closeMain()"
+					>
+						Calendar
+					</md-button>
+				</nav>
+				<nav ui-sref="gallery">
+					<md-button 
+						class="sidenav-button menu-button" 
+						ng-click="mc.closeMain()"
+					>
+						Gallery
+					</md-button>
+				</nav>
+				<nav ui-sref="login" ng-hide="mc.currentUser.username">
+					<md-button 
+						class="sidenav-button menu-button" 
+						ng-click="mc.closeMain()"
+					>
+						Log In
+					</md-button>
+				</nav>
+				<nav ui-sref="feedback" ng-show="mc.currentUser.username">
+					<md-button 
+						class="sidenav-button menu-button" 
+						ng-click="mc.closeMain()"
+					>
+						Feedback
+					</md-button>
+				</nav>
+				<nav ui-sref="account" ng-show="mc.currentUser.username">
+					<md-button 
+						class="sidenav-button menu-button" 
+						ng-click="mc.closeMain()"
+					>
+						Account
+					</md-button>
+				</nav>
+				<nav ui-sref="user-dashboard" ng-show="mc.currentUser.username">
+					<md-button 
+						class="sidenav-button menu-button" 
+						ng-click="mc.closeMain()"
+					>
+						Dashboard
+					</md-button>
+				</nav>
+				<nav ui-sref="admin-dashboard" ng-show="mc.currentUser.isAdmin === true">
+					<md-button 
+						class="sidenav-button menu-button" 
+						ng-click="mc.closeMain()"
+					>
+						Admin
+					</md-button>
+				</nav>
+				<nav ng-click="mc.logout()" ng-show="mc.currentUser.username">
+					<md-button 
+						class="sidenav-button menu-button" 
+						ng-click="mc.closeMain()"
+					>
+						Log Out
+					</md-button>
+				</nav>
 			</div>
 		</md-sidenav>
 		
@@ -44,7 +107,7 @@
 			
 		</footer>
 		
-		<!-- bower:js -->
+		<!--script dependencies-->
 		<script src="js/js-dependencies/jquery.min.js"></script>
 		<script src="js/js-dependencies/angular.js"></script>
 		<script src="js/js-dependencies/angular-material.js"></script>
