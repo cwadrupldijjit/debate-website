@@ -66,6 +66,9 @@ app.post('/feedback', isAuthed, FeedbackController.addNew);
 app.get('/feedback', isAdmin, FeedbackController.read);
 app.put('/feedback/:id', isAdmin, FeedbackController.removeOne);
 
+app.post('/add-gallery-image/', isAuthed, config.saveGalleryImage);
+
+
 
 app.post('/auth/local', passport.authenticate('local', {
 	successRedirect: '/user'

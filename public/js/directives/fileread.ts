@@ -9,6 +9,7 @@ app.directive('fileread', ['ImageService', function(ImageService) {
 				var reader = new FileReader();
 				
 				reader.onload = function(loadEvent) {
+					console.log(loadEvent.target);
 					var fileread = loadEvent.target.result;
 					
 					ImageService.storeImage(fileread, filename)
