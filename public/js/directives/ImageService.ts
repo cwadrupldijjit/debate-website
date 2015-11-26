@@ -3,7 +3,7 @@
 app.service('ImageService', ['$http', '$q', 'LoginService', function($http, $q, LoginService) {
 	var svc = this;
 	
-	svc.storeImage = function(imageData, fileName) {
+	svc.storeGalleryImage = function(imageData, fileName) {
 		var deferred = $q.defer();
 		
 		var imageExtension = imageData.split(';')[0].split('/');

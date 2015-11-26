@@ -131,24 +131,36 @@ app.directive('fileread', ['ImageService', function (ImageService) {
         return {
             restrict: 'A',
             link: function (scope, elem, attrs) {
-                var tempArray = elem['context'].value.split('\\');
-                var filename = tempArray[tempArray.length - 1];
                 elem.bind('change', function (changeEvent) {
+                    var filename = filenameParser(elem.context.value);
                     var reader = new FileReader();
                     reader.onload = function (loadEvent) {
-                        console.log(loadEvent.target);
                         var fileread = loadEvent.target.result;
-                        ImageService.storeImage(fileread, filename);
+                        ImageService.storeGalleryImage(fileread, filename);
                     };
                     reader.readAsDataURL(changeEvent.target.files[0]);
                 });
+                function filenameParser(filePath) {
+                    var backwardsName = reverseString(filePath);
+                    var splitSpot = filePath.lastIndexOf('\\');
+                    var wholeFileName = filePath.slice(splitSpot + 1);
+                    return reverseString(reverseString(wholeFileName).slice(reverseString(wholeFileName).indexOf('.') + 1));
+                    // return (reverseString(backwardsName.))
+                }
+                function reverseString(str) {
+                    var newStr = '';
+                    for (var i = str.length - 1; i >= 0; i--) {
+                        newStr += str[i];
+                    }
+                    return newStr;
+                }
             }
         };
     }]);
 /// <reference path="../app" />
 app.service('ImageService', ['$http', '$q', 'LoginService', function ($http, $q, LoginService) {
         var svc = this;
-        svc.storeImage = function (imageData, fileName) {
+        svc.storeGalleryImage = function (imageData, fileName) {
             var deferred = $q.defer();
             var imageExtension = imageData.split(';')[0].split('/');
             imageExtension = imageExtension[imageExtension.length - 1];
