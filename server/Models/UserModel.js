@@ -16,7 +16,7 @@ var schema = new mongoose.Schema({
 	linkedProviders: { facebook: { facebookId: String, displayName: String }, 
 					   twitter: { twitterId: String, displayName: String }, 
 					   google: { googleId: String, displayName: String } },
-	security: { questions: [ { questionNum: { type: Number }, question: String, answer: String } ], 
+	security: { questions: [ { questionNum: Number, question: String, answer: String } ], 
 				backupEmail: String,
 				privacyOptions: { 
 					showFullName: 	 { type: Boolean, default: false },
